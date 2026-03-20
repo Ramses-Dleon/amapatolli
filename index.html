@@ -3648,14 +3648,7 @@
                 const game = games[rec.gameId];
                 const div = document.createElement('div');
                 div.className = 'recommendation';
-                div.innerHTML = `
-                    <div>
-                        <strong style="color: var(--gold);">${game.name}</strong>
-                        <span style="color: var(--gray); font-size: 0.9rem;"> — ${game.translation}</span>
-                        <p style="margin: 0; font-size: 0.9rem; color: var(--white);">${game.type}</p>
-                    </div>
-                    <div class="match-percentage">${rec.percentage}%</div>
-                `;
+                div.innerHTML = `<div><strong style="color:var(--gold)">${game.name}</strong><span style="color:var(--gray);font-size:0.9rem"> — ${game.translation}</span><p style="margin:0;font-size:0.9rem;color:var(--white)">${game.type}</p></div><div class="match-percentage">${rec.percentage}%</div>`;
                 div.addEventListener('click', () => {
                     if (window.switchTab) {
                         window.switchTab(rec.gameId);

@@ -1589,17 +1589,9 @@
             <p>La baraja se basa en la iconografía mesoamericana, los 20 signos del <em>tonalpohualli</em> (calendario ritual de 260 días) y los 4 rumbos cósmicos del universo náhuatl.</p>
         </div>
         <nav class="nav-grid" aria-label="Secciones">
-            <a href="#juego-ce" class="nav-button">Ce</a>
-            <a href="#juego-ixtli" class="nav-button">Ixtli</a>
-            <a href="#juego-pamitl" class="nav-button">Pamitl</a>
-            <a href="#juego-pinotl" class="nav-button">Pinotl</a>
-            <a href="#juego-tecuia" class="nav-button">Tecuia</a>
-            <a href="#juego-atoyatl" class="nav-button">Atoyatl</a>
-            <a href="#juego-cayahua" class="nav-button">Cayahua</a>
-            <a href="#juego-tlalpoloa" class="nav-button">Tlalpoloa</a>
-            <a href="#juego-cempohualli" class="nav-button">Cempohualli</a>
-            <a href="#juego-palehuia" class="nav-button">Palehuia</a>
-            <a href="#juego-tlapatlani" class="nav-button">Tlapatlani</a>
+            <a href="#juegos" class="nav-button">Juegos (11)</a>
+            <a href="#jugadas-ejemplo" class="nav-button">Jugadas de Ejemplo</a>
+            <a href="#estrategias" class="nav-button">Estrategias</a>
             <a href="#baraja" class="nav-button">Baraja</a>
             <a href="#signos" class="nav-button">Signos</a>
             <a href="#componentes" class="nav-button">Componentes</a>
@@ -1610,47 +1602,400 @@
     </section>
 
     <div class="container">
-        <section id="juego-ce" class="game-section">
-            <h2>Ce <span class="game-translation">("Uno")</span></h2>
-            <div class="game-meta">
-                <span class="game-type">Cartas · Velocidad/Descarte</span>
-                <span>👥 2-6 jugadores</span>
-                <span>🎴 Solo baraja</span>
+        <!-- SECTION 1: JUEGOS -->
+        <section id="juegos">
+            <h2>Los 11 Juegos de Amapatolli</h2>
+            <p class="text-center mb-lg">Cada juego utiliza las mismas cartas de formas diferentes: velocidad, estrategia, memoria, cooperación y más.</p>
+
+            <!-- GAME SELECTOR -->
+            <div class="game-selector">
+                <h3 style="color: var(--gold); text-align: center; margin-bottom: var(--spacing-md);">¿Qué juego jugamos?</h3>
+                <div class="selector-questions">
+                    <div class="question-group">
+                        <label for="players">¿Cuántos jugadores?</label>
+                        <select id="players">
+                            <option value="">Todos</option>
+                            <option value="2">2 jugadores</option>
+                            <option value="3-4">3-4 jugadores</option>
+                            <option value="5-6">5-6 jugadores</option>
+                        </select>
+                    </div>
+                    <div class="question-group">
+                        <label for="duration">¿Cuánto tiempo?</label>
+                        <select id="duration">
+                            <option value="">Todos</option>
+                            <option value="rapido">Rápido (5-10 min)</option>
+                            <option value="medio">Medio (10-20 min)</option>
+                            <option value="largo">Largo (20+ min)</option>
+                        </select>
+                    </div>
+                    <div class="question-group">
+                        <label for="gameType">¿Qué tipo?</label>
+                        <select id="gameType">
+                            <option value="">Todos</option>
+                            <option value="velocidad">Velocidad</option>
+                            <option value="estrategia">Estrategia</option>
+                            <option value="cooperativo">Cooperativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="selector-results" id="selectorResults"></div>
             </div>
-            <p class="game-description">Empareja por color de margen o fondo. ¡Grita "Ce Amapatolli" cuando te quede una carta!</p>
-            
-            <div class="game-subsection">
-                <h3>Preparación</h3>
-                <img src="./instructions/Preparacion Ce@4x.png" alt="Preparación Ce" loading="lazy">
+
+            <div class="game-grid">
+                <!-- Game 1: CE -->
+                <div class="game-card" data-game="ce">
+                    <img src="./instructions/Jugadas Ce@4x.png" alt="Jugadas Ce" class="game-card-thumb" loading="lazy">
+                    <h3>Ce <span style="font-size: 0.8em;">("Uno")</span></h3>
+                    <p class="game-type">Cartas · Velocidad/Descarte</p>
+                    <p>Empareja por color de margen o fondo. ¡Grita "Ce Amapatolli" cuando te quede una carta!</p>
+                    <div class="game-info">
+                        <span>👥 2-6 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
+
+                <!-- Game 2: IXTLI -->
+                <div class="game-card" data-game="ixtli">
+                    <img src="./instructions/Jugadas Ixtli@4x.png" alt="Jugadas Ixtli" class="game-card-thumb" loading="lazy">
+                    <h3>Ixtli <span style="font-size: 0.8em;">("Ojo/Rostro")</span></h3>
+                    <p class="game-type">Tablero + Cartas · Observación/Velocidad</p>
+                    <p>Encuentra la ilustración en tu tablero. ¡Grita "Ixtli" al encontrarla!</p>
+                    <div class="game-info">
+                        <span>👥 2-4 jugadores</span>
+                        <span>🎴 Baraja + tablero + fichas</span>
+                    </div>
+                </div>
+
+                <!-- Game 3: PAMITL -->
+                <div class="game-card" data-game="pamitl">
+                    <img src="./instructions/Jugadas Pamitl@4x.png" alt="Jugadas Pamitl" class="game-card-thumb" loading="lazy">
+                    <h3>Pamitl <span style="font-size: 0.8em;">("Bandera/Fila")</span></h3>
+                    <p class="game-type">Tablero + Fichas · Estrategia abstracta</p>
+                    <p>Conecta 5 fichas en fila en cualquier dirección para ganar.</p>
+                    <div class="game-info">
+                        <span>👥 2 jugadores</span>
+                        <span>🎲 Tablero + fichas</span>
+                    </div>
+                </div>
+
+                <!-- Game 4: PINOTL -->
+                <div class="game-card" data-game="pinotl">
+                    <img src="./instructions/Jugadas Pinotl@4x.png" alt="Jugadas Pinotl" class="game-card-thumb" loading="lazy">
+                    <h3>Pinotl <span style="font-size: 0.8em;">("Pila/Montón")</span></h3>
+                    <p class="game-type">Cartas · Emparejamiento</p>
+                    <p>Termina tus cartas antes que los demás una vez agotado el mazo.</p>
+                    <div class="game-info">
+                        <span>👥 2-6 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
+
+                <!-- Game 5: TECUIA -->
+                <div class="game-card" data-game="tecuia">
+                    <img src="./instructions/Jugadas Tecuia@4x.png" alt="Jugadas Tecuia" class="game-card-thumb" loading="lazy">
+                    <h3>Tecuia <span style="font-size: 0.8em;">("Golpear")</span></h3>
+                    <p class="game-type">Cartas · Secuencia/Posicionamiento</p>
+                    <p>Coloca 5 cartas consecutivas de tu color en cualquier dirección.</p>
+                    <div class="game-info">
+                        <span>👥 2-4 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
+
+                <!-- Game 6: ATOYATL -->
+                <div class="game-card" data-game="atoyatl">
+                    <img src="./instructions/Jugadas Atoyatl@4x.png" alt="Jugadas Atoyatl" class="game-card-thumb" loading="lazy">
+                    <h3>Atoyatl <span style="font-size: 0.8em;">("Río")</span></h3>
+                    <p class="game-type">Cartas · Descarte por valor</p>
+                    <p>Coloca la última carta boca abajo para ganar. Los valores numéricos determinan jugadas válidas.</p>
+                    <div class="game-info">
+                        <span>👥 2-4 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
+
+                <!-- Game 7: CAYAHUA -->
+                <div class="game-card" data-game="cayahua">
+                    <img src="./instructions/Jugadas Cayahua@4x.png" alt="Jugadas Cayahua" class="game-card-thumb" loading="lazy">
+                    <h3>Cayahua <span style="font-size: 0.8em;">("Dejar caer")</span></h3>
+                    <p class="game-type">Tablero + Fichas · Estrategia abstracta</p>
+                    <p>Deja a tu rival sin ningún Tetl en formación de diamante.</p>
+                    <div class="game-info">
+                        <span>👥 2 jugadores</span>
+                        <span>🎲 Tablero + fichas</span>
+                    </div>
+                </div>
+
+                <!-- Game 8: TLALPOLOA -->
+                <div class="game-card" data-game="tlalpoloa">
+                    <img src="./instructions/Jugadas Tlalpoloa@4x.png" alt="Jugadas Tlalpoloa" class="game-card-thumb" loading="lazy">
+                    <h3>Tlalpoloa <span style="font-size: 0.8em;">("Devorar la tierra")</span></h3>
+                    <p class="game-type">Tablero + Fichas · Colocación</p>
+                    <p>Coloca todas tus fichas en el tablero con formación de diamante.</p>
+                    <div class="game-info">
+                        <span>👥 2 jugadores</span>
+                        <span>🎲 Tablero + fichas</span>
+                    </div>
+                </div>
+
+                <!-- Game 9: CEMPOHUALLI -->
+                <div class="game-card" data-game="cempohualli">
+                    <img src="./instructions/Jugadas Cempohualli@4x.png" alt="Jugadas Cempohualli" class="game-card-thumb" loading="lazy">
+                    <h3>Cempohualli <span style="font-size: 0.8em;">("Veinte")</span></h3>
+                    <p class="game-type">Cartas · Supervivencia</p>
+                    <p>Cada carta es una vida. ¡El último jugador en pie gana!</p>
+                    <div class="game-info">
+                        <span>👥 2-6 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
+
+                <!-- Game 10: PALEHUIA -->
+                <div class="game-card" data-game="palehuia">
+                    <img src="./instructions/Jugadas Palehuia@4x.png" alt="Jugadas Palehuia" class="game-card-thumb" loading="lazy">
+                    <h3>Palehuia <span style="font-size: 0.8em;">("Ayudar")</span></h3>
+                    <p class="game-type">Cartas · Cooperativo</p>
+                    <p>Juego cooperativo: completa 4 pilas del 1 al 5. ¡Trabajen juntos para no perder!</p>
+                    <div class="game-info">
+                        <span>👥 2-4 jugadores</span>
+                        <span>🎴 Baraja + fichas</span>
+                    </div>
+                </div>
+
+                <!-- Game 11: TLAPATLANI -->
+                <div class="game-card" data-game="tlapatlani">
+                    <img src="./instructions/Jugadas Tlapatlani@4x.png" alt="Jugadas Tlapatlani" class="game-card-thumb" loading="lazy">
+                    <h3>Tlapatlani <span style="font-size: 0.8em;">("Intercambiar")</span></h3>
+                    <p class="game-type">Cartas · Colección</p>
+                    <p>Completa primero tus 4 pilas organizadas por tipo de ilustración.</p>
+                    <div class="game-info">
+                        <span>👥 2-4 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
             </div>
-            
-            <div class="game-subsection">
-                <h3>Jugadas</h3>
-                <img src="./instructions/Jugadas Ce@4x.png" alt="Jugadas Ce" loading="lazy">
+
+            <!-- QUICK REFERENCE -->
+            <div class="quick-reference">
+                <h3 style="color: var(--jade); text-align: center; margin-bottom: var(--spacing-lg);">Referencia Rápida — Todas las Instrucciones</h3>
+
+                <div class="reference-game">
+                    <h4 style="color: var(--gold); margin-bottom: var(--spacing-md);">Ce</h4>
+                    <div class="reference-images">
+                        <div class="reference-image-container">
+                            <img src="./instructions/Preparacion Ce@4x.png" alt="Preparacion Ce" loading="lazy">
+                            <h4>Preparacion</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Jugadas Ce@4x.png" alt="Jugadas Ce" loading="lazy">
+                            <h4>Jugadas</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Objetivo Ce@4x.png" alt="Objetivo Ce" loading="lazy">
+                            <h4>Objetivo</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reference-game">
+                    <h4 style="color: var(--gold); margin-bottom: var(--spacing-md);">Ixtli</h4>
+                    <div class="reference-images">
+                        <div class="reference-image-container">
+                            <img src="./instructions/Preparacion Ixtli@4x.png" alt="Preparacion Ixtli" loading="lazy">
+                            <h4>Preparacion</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Jugadas Ixtli@4x.png" alt="Jugadas Ixtli" loading="lazy">
+                            <h4>Jugadas</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Objetivo Ixtli@4x.png" alt="Objetivo Ixtli" loading="lazy">
+                            <h4>Objetivo</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reference-game">
+                    <h4 style="color: var(--gold); margin-bottom: var(--spacing-md);">Pamitl</h4>
+                    <div class="reference-images">
+                        <div class="reference-image-container">
+                            <img src="./instructions/Preparacion Pamitl@4x.png" alt="Preparacion Pamitl" loading="lazy">
+                            <h4>Preparacion</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Jugadas Pamitl@4x.png" alt="Jugadas Pamitl" loading="lazy">
+                            <h4>Jugadas</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Objetivo Pamitl@4x.png" alt="Objetivo Pamitl" loading="lazy">
+                            <h4>Objetivo</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reference-game">
+                    <h4 style="color: var(--gold); margin-bottom: var(--spacing-md);">Pinotl</h4>
+                    <div class="reference-images">
+                        <div class="reference-image-container">
+                            <img src="./instructions/Preparacion Pinotl@4x.png" alt="Preparacion Pinotl" loading="lazy">
+                            <h4>Preparacion</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Jugadas Pinotl@4x.png" alt="Jugadas Pinotl" loading="lazy">
+                            <h4>Jugadas</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Objetivo Pinotl@4x.png" alt="Objetivo Pinotl" loading="lazy">
+                            <h4>Objetivo</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reference-game">
+                    <h4 style="color: var(--gold); margin-bottom: var(--spacing-md);">Tecuia</h4>
+                    <div class="reference-images">
+                        <div class="reference-image-container">
+                            <img src="./instructions/Preparacion Tecuia@4x.png" alt="Preparacion Tecuia" loading="lazy">
+                            <h4>Preparacion</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Jugadas Tecuia@4x.png" alt="Jugadas Tecuia" loading="lazy">
+                            <h4>Jugadas</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Objetivo Tecuia@4x.png" alt="Objetivo Tecuia" loading="lazy">
+                            <h4>Objetivo</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reference-game">
+                    <h4 style="color: var(--gold); margin-bottom: var(--spacing-md);">Atoyatl</h4>
+                    <div class="reference-images">
+                        <div class="reference-image-container">
+                            <img src="./instructions/Preparacion Atoyatl@4x.png" alt="Preparacion Atoyatl" loading="lazy">
+                            <h4>Preparacion</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Jugadas Atoyatl@4x.png" alt="Jugadas Atoyatl" loading="lazy">
+                            <h4>Jugadas</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Objetivo Atoyatl@4x.png" alt="Objetivo Atoyatl" loading="lazy">
+                            <h4>Objetivo</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reference-game">
+                    <h4 style="color: var(--gold); margin-bottom: var(--spacing-md);">Cayahua</h4>
+                    <div class="reference-images">
+                        <div class="reference-image-container">
+                            <img src="./instructions/Preparacion Cayahua@4x.png" alt="Preparacion Cayahua" loading="lazy">
+                            <h4>Preparacion</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Jugadas Cayahua@4x.png" alt="Jugadas Cayahua" loading="lazy">
+                            <h4>Jugadas</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Objetivo Cayahua@4x.png" alt="Objetivo Cayahua" loading="lazy">
+                            <h4>Objetivo</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reference-game">
+                    <h4 style="color: var(--gold); margin-bottom: var(--spacing-md);">Tlalpoloa</h4>
+                    <div class="reference-images">
+                        <div class="reference-image-container">
+                            <img src="./instructions/Preparacion Tlalpoloa@4x.png" alt="Preparacion Tlalpoloa" loading="lazy">
+                            <h4>Preparacion</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Jugadas Tlalpoloa@4x.png" alt="Jugadas Tlalpoloa" loading="lazy">
+                            <h4>Jugadas</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Objetivo Tlalpoloa@4x.png" alt="Objetivo Tlalpoloa" loading="lazy">
+                            <h4>Objetivo</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reference-game">
+                    <h4 style="color: var(--gold); margin-bottom: var(--spacing-md);">Cempohualli</h4>
+                    <div class="reference-images">
+                        <div class="reference-image-container">
+                            <img src="./instructions/Preparacion Cempohualli@4x.png" alt="Preparacion Cempohualli" loading="lazy">
+                            <h4>Preparacion</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Jugadas Cempohualli@4x.png" alt="Jugadas Cempohualli" loading="lazy">
+                            <h4>Jugadas</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Objetivo Cempohualli@4x.png" alt="Objetivo Cempohualli" loading="lazy">
+                            <h4>Objetivo</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reference-game">
+                    <h4 style="color: var(--gold); margin-bottom: var(--spacing-md);">Palehuia</h4>
+                    <div class="reference-images">
+                        <div class="reference-image-container">
+                            <img src="./instructions/Preparacion Palehuia@4x.png" alt="Preparacion Palehuia" loading="lazy">
+                            <h4>Preparacion</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Jugadas Palehuia@4x.png" alt="Jugadas Palehuia" loading="lazy">
+                            <h4>Jugadas</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Objetivo Palehuia@4x.png" alt="Objetivo Palehuia" loading="lazy">
+                            <h4>Objetivo</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reference-game">
+                    <h4 style="color: var(--gold); margin-bottom: var(--spacing-md);">Tlapatlani</h4>
+                    <div class="reference-images">
+                        <div class="reference-image-container">
+                            <img src="./instructions/Preparacion Tlapatlani@4x.png" alt="Preparacion Tlapatlani" loading="lazy">
+                            <h4>Preparacion</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Jugadas Tlapatlani@4x.png" alt="Jugadas Tlapatlani" loading="lazy">
+                            <h4>Jugadas</h4>
+                        </div>
+                        <div class="reference-image-container">
+                            <img src="./instructions/Objetivo Tlapatlani@4x.png" alt="Objetivo Tlapatlani" loading="lazy">
+                            <h4>Objetivo</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="game-subsection">
-                <h3>Objetivo</h3>
-                <img src="./instructions/Objetivo Ce@4x.png" alt="Objetivo Ce" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Estrategia</h3>
-                <ul class="strategy-tips">
-                            <li>Rastrea ambos ejes de color (margen + fondo) simultáneamente para maximizar opciones</li>
-                            <li>Guarda cartas Tlapiani (comodines) para cuando estés bloqueado — nunca las juegues en el primer turno</li>
-                            <li>Juega Pájaros cuando el oponente acabe de robar muchas cartas para retrasar su progreso</li>
-                            <li>Con cartas de doble coincidencia: solo encadena cuando ambas te acerquen a la victoria</li>
-                            <li><strong>SIEMPRE grita "Ce Amapatolli" en tu penúltima carta</strong> — olvidarlo te cuesta 3 cartas</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Jugar comodines demasiado temprano y quedarse sin opciones defensivas en el momento crítico.</p>
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugada de Ejemplo</h3>
-                <div class="play-steps">
+        </section>
+
+        <!-- SECTION 2: JUGADAS DE EJEMPLO -->
+        <section id="jugadas-ejemplo">
+            <h2>Jugadas de Ejemplo</h2>
+            <p class="text-center mb-lg">Escenarios paso a paso para aprender cada juego</p>
+
+            <!-- Ce -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-title">
+                        <h3>Ce ("Uno")</h3>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="example-content">
+                    <div class="example-body">
+                        <div class="play-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
@@ -1679,50 +2024,38 @@
                                 <span class="step-number">5</span>
                                 <div class="step-content">
                                     <p><strong>¡VICTORIA!</strong> Jugador C solo tiene 1 carta, grita "¡Ce Amapatolli!" → gana</p>
-            </div>
-        </section>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- Ce Quick Reference -->
+                        <div class="quick-reference">
+                            <h4>Jugadas Posibles en Ce</h4>
+                            <img src="./instructions/Jugadas Ce@4x.png" alt="Guía de jugadas para Ce" class="reference-image">
+                            <ul class="reference-list">
+                                <li><strong>Mismo margen</strong> → 1 carta</li>
+                                <li><strong>Mismo fondo</strong> → 1 carta</li>
+                                <li><strong>Ambos iguales</strong> → 2 cartas</li>
+                                <li><strong>Invertidos</strong> → 2 cartas</li>
+                                <li><strong>Pájaro</strong> → salta turno</li>
+                                <li><strong>Tlapiani</strong> → comodín</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <section id="juego-ixtli" class="game-section">
-            <h2>Ixtli <span class="game-translation">("Ojo/Rostro")</span></h2>
-            <div class="game-meta">
-                <span class="game-type">Tablero + Cartas · Observación/Velocidad</span>
-                <span>👥 2-4 jugadores</span>
-                <span>🎴 Baraja + tablero + fichas</span>
-            </div>
-            <p class="game-description">Encuentra la ilustración en tu tablero. ¡Grita "Ixtli" al encontrarla!</p>
-            
-            <div class="game-subsection">
-                <h3>Preparación</h3>
-                <img src="./instructions/Preparacion Ixtli@4x.png" alt="Preparación Ixtli" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugadas</h3>
-                <img src="./instructions/Jugadas Ixtli@4x.png" alt="Jugadas Ixtli" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Objetivo</h3>
-                <img src="./instructions/Objetivo Ixtli@4x.png" alt="Objetivo Ixtli" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Estrategia</h3>
-                <ul class="strategy-tips">
-                            <li>Memoriza tu tablero ANTES de que comience el juego (tómate 10 segundos completos)</li>
-                            <li>Escanea por cuadrantes, no linealmente de izquierda a derecha</li>
-                            <li>Cuando tengas 6 fichas colocadas, fija tu mirada en la ÚNICA ilustración que te falta</li>
-                            <li>Agrupa mentalmente las ilustraciones por categorías (animales, elementos, objetos)</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Escanear en orden lineal en lugar de por agrupaciones visuales. El cerebro reconoce patrones más rápido que secuencias.</p>
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugada de Ejemplo</h3>
-                <div class="play-steps">
+            <!-- Ixtli -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-title">
+                        <h3>Ixtli ("Ojo/Rostro")</h3>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="example-content">
+                    <div class="example-body">
+                        <div class="play-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
@@ -1757,51 +2090,24 @@
                                 <span class="step-number">6</span>
                                 <div class="step-content">
                                     <p><strong>¡VICTORIA!</strong> Cantor destapa Mazatl → ¡Jugador A la tiene! Grita "¡Ixtli!" → 7 fichas → ¡GANA!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-
-        <section id="juego-pamitl" class="game-section">
-            <h2>Pamitl <span class="game-translation">("Bandera/Fila")</span></h2>
-            <div class="game-meta">
-                <span class="game-type">Tablero + Fichas · Estrategia abstracta</span>
-                <span>👥 2 jugadores</span>
-                <span>🎲 Tablero + fichas</span>
-            </div>
-            <p class="game-description">Conecta 5 fichas en fila en cualquier dirección para ganar.</p>
-            
-            <div class="game-subsection">
-                <h3>Preparación</h3>
-                <img src="./instructions/Preparacion Pamitl@4x.png" alt="Preparación Pamitl" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugadas</h3>
-                <img src="./instructions/Jugadas Pamitl@4x.png" alt="Jugadas Pamitl" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Objetivo</h3>
-                <img src="./instructions/Objetivo Pamitl@4x.png" alt="Objetivo Pamitl" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Estrategia</h3>
-                <ul class="strategy-tips">
-                            <li><strong>Siempre toma el centro (3,3) en el movimiento 1</strong> — controla el mayor número de líneas ganadoras</li>
-                            <li>Crea bifurcaciones de doble amenaza (dos líneas ganadoras simultáneas que tu oponente no puede bloquear)</li>
-                            <li>No descuides las diagonales — muchos jugadores se centran solo en horizontales/verticales</li>
-                            <li>Valor de casillas: centro > adyacentes al centro > bordes > esquinas</li>
-                            <li>Cuenta las líneas potenciales de tu oponente y bloquea la más peligrosa</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Jugar reactivamente sin construir tus propias amenazas. En Pamitl, quien ataca primero gana.</p>
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugada de Ejemplo</h3>
-                <div class="play-steps">
+            <!-- Pamitl -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-title">
+                        <h3>Pamitl ("Bandera/Fila")</h3>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="example-content">
+                    <div class="example-body">
+                        <div class="play-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
@@ -1836,50 +2142,24 @@
                                 <span class="step-number">6</span>
                                 <div class="step-content">
                                     <p><strong>¡VICTORIA!</strong> Jugador B solo puede bloquear una → Jugador A completa Pamitl → ¡GANA!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-
-        <section id="juego-pinotl" class="game-section">
-            <h2>Pinotl <span class="game-translation">("Pila/Montón")</span></h2>
-            <div class="game-meta">
-                <span class="game-type">Cartas · Emparejamiento</span>
-                <span>👥 2-6 jugadores</span>
-                <span>🎴 Solo baraja</span>
-            </div>
-            <p class="game-description">Termina tus cartas antes que los demás una vez agotado el mazo.</p>
-            
-            <div class="game-subsection">
-                <h3>Preparación</h3>
-                <img src="./instructions/Preparacion Pinotl@4x.png" alt="Preparación Pinotl" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugadas</h3>
-                <img src="./instructions/Jugadas Pinotl@4x.png" alt="Jugadas Pinotl" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Objetivo</h3>
-                <img src="./instructions/Objetivo Pinotl@4x.png" alt="Objetivo Pinotl" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Estrategia</h3>
-                <ul class="strategy-tips">
-                            <li><strong>Esto es un juego de RITMO, no de velocidad</strong> — descartar rápido al inicio es contraproducente</li>
-                            <li>Identifica tus cartas "peso muerto" (ilustraciones raras que no emparejan) y descártalas primero</li>
-                            <li>Guarda Tlapiani para el endgame cuando tengas cartas injugables</li>
-                            <li>Observa qué ilustraciones están descartando tus oponentes para saber cuáles ya no están en juego</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Competir por descartar temprano. Los jugadores que avanzan rápido al inicio suelen quedarse estancados al final.</p>
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugada de Ejemplo</h3>
-                <div class="play-steps">
+            <!-- Pinotl -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-title">
+                        <h3>Pinotl ("Pila/Montón")</h3>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="example-content">
+                    <div class="example-body">
+                        <div class="play-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
@@ -1908,49 +2188,24 @@
                                 <span class="step-number">5</span>
                                 <div class="step-content">
                                     <p><strong>¡VICTORIA!</strong> Juega su Tlapiani como comodín → empata con la carta restante → ¡GANA!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-
-        <section id="juego-tecuia" class="game-section">
-            <h2>Tecuia <span class="game-translation">("Golpear")</span></h2>
-            <div class="game-meta">
-                <span class="game-type">Cartas · Secuencia/Posicionamiento</span>
-                <span>👥 2-4 jugadores</span>
-                <span>🎴 Solo baraja</span>
-            </div>
-            <p class="game-description">Coloca 5 cartas consecutivas de tu color en cualquier dirección.</p>
-            
-            <div class="game-subsection">
-                <h3>Preparación</h3>
-                <img src="./instructions/Preparacion Tecuia@4x.png" alt="Preparación Tecuia" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugadas</h3>
-                <img src="./instructions/Jugadas Tecuia@4x.png" alt="Jugadas Tecuia" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Objetivo</h3>
-                <img src="./instructions/Objetivo Tecuia@4x.png" alt="Objetivo Tecuia" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Estrategia</h3>
-                <ul class="strategy-tips">
-                            <li>Visualiza tus secuencias antes de colocar — necesitas 5 cartas consecutivas del mismo color</li>
-                            <li>Bloquea las secuencias largas del oponente colocando cartas en sus espacios clave</li>
-                            <li>Planea desde el valor central hacia fuera para mayor flexibilidad</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>No anticipar qué números necesitarás y colocar cartas sin estrategia de secuencia.</p>
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugada de Ejemplo</h3>
-                <div class="play-steps">
+            <!-- Tecuia -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-title">
+                        <h3>Tecuia ("Golpear")</h3>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="example-content">
+                    <div class="example-body">
+                        <div class="play-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
@@ -1979,49 +2234,24 @@
                                 <span class="step-number">5</span>
                                 <div class="step-content">
                                     <p><strong>¡VICTORIA!</strong> Jugador A coloca valores 5, 6, 7 → secuencia 3-4-5-6-7 = ¡5 consecutivas! → ¡GANA!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-
-        <section id="juego-atoyatl" class="game-section">
-            <h2>Atoyatl <span class="game-translation">("Río")</span></h2>
-            <div class="game-meta">
-                <span class="game-type">Cartas · Descarte por valor</span>
-                <span>👥 2-4 jugadores</span>
-                <span>🎴 Solo baraja</span>
-            </div>
-            <p class="game-description">Coloca la última carta boca abajo para ganar. Los valores numéricos determinan jugadas válidas.</p>
-            
-            <div class="game-subsection">
-                <h3>Preparación</h3>
-                <img src="./instructions/Preparacion Atoyatl@4x.png" alt="Preparación Atoyatl" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugadas</h3>
-                <img src="./instructions/Jugadas Atoyatl@4x.png" alt="Jugadas Atoyatl" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Objetivo</h3>
-                <img src="./instructions/Objetivo Atoyatl@4x.png" alt="Objetivo Atoyatl" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Estrategia</h3>
-                <ul class="strategy-tips">
-                            <li>Mantén cartas de múltiples valores para tener opciones sin importar qué se juegue</li>
-                            <li>Los valores bajos son más flexibles — guárdalos para maniobrar al final</li>
-                            <li>Anticipa qué puede jugar tu oponente basándote en el valor actual</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Descartar valores extremos (muy altos o muy bajos) demasiado pronto y quedar sin opciones.</p>
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugada de Ejemplo</h3>
-                <div class="play-steps">
+            <!-- Atoyatl -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-title">
+                        <h3>Atoyatl ("Río")</h3>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="example-content">
+                    <div class="example-body">
+                        <div class="play-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
@@ -2056,49 +2286,24 @@
                                 <span class="step-number">6</span>
                                 <div class="step-content">
                                     <p><strong>¡VICTORIA!</strong> Jugador A coloca su última carta boca abajo → ¡GANA!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-
-        <section id="juego-cayahua" class="game-section">
-            <h2>Cayahua <span class="game-translation">("Dejar caer")</span></h2>
-            <div class="game-meta">
-                <span class="game-type">Tablero + Fichas · Estrategia abstracta</span>
-                <span>👥 2 jugadores</span>
-                <span>🎲 Tablero + fichas</span>
-            </div>
-            <p class="game-description">Deja a tu rival sin ningún Tetl en formación de diamante.</p>
-            
-            <div class="game-subsection">
-                <h3>Preparación</h3>
-                <img src="./instructions/Preparacion Cayahua@4x.png" alt="Preparación Cayahua" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugadas</h3>
-                <img src="./instructions/Jugadas Cayahua@4x.png" alt="Jugadas Cayahua" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Objetivo</h3>
-                <img src="./instructions/Objetivo Cayahua@4x.png" alt="Objetivo Cayahua" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Estrategia</h3>
-                <ul class="strategy-tips">
-                            <li>Controla el centro del diamante para dominar el territorio</li>
-                            <li>Cada captura debe mejorar tu posición, no solo reducir fichas del oponente</li>
-                            <li>Deja al oponente sin movimientos seguros forzándolo a posiciones vulnerables</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Capturar por capturar sin considerar cómo afecta la estructura del tablero.</p>
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugada de Ejemplo</h3>
-                <div class="play-steps">
+            <!-- Cayahua -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-title">
+                        <h3>Cayahua ("Dejar caer")</h3>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="example-content">
+                    <div class="example-body">
+                        <div class="play-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
@@ -2127,49 +2332,24 @@
                                 <span class="step-number">5</span>
                                 <div class="step-content">
                                     <p><strong>¡VICTORIA!</strong> Jugador B ejecuta captura final → A sin fichas → ¡B GANA!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-
-        <section id="juego-tlalpoloa" class="game-section">
-            <h2>Tlalpoloa <span class="game-translation">("Devorar la tierra")</span></h2>
-            <div class="game-meta">
-                <span class="game-type">Tablero + Fichas · Colocación</span>
-                <span>👥 2 jugadores</span>
-                <span>🎲 Tablero + fichas</span>
-            </div>
-            <p class="game-description">Coloca todas tus fichas en el tablero con formación de diamante.</p>
-            
-            <div class="game-subsection">
-                <h3>Preparación</h3>
-                <img src="./instructions/Preparacion Tlalpoloa@4x.png" alt="Preparación Tlalpoloa" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugadas</h3>
-                <img src="./instructions/Jugadas Tlalpoloa@4x.png" alt="Jugadas Tlalpoloa" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Objetivo</h3>
-                <img src="./instructions/Objetivo Tlalpoloa@4x.png" alt="Objetivo Tlalpoloa" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Estrategia</h3>
-                <ul class="strategy-tips">
-                            <li>Expande desde el centro hacia afuera en forma de diamante compacto</li>
-                            <li>Bloquea espacios clave del oponente mientras aseguras los tuyos</li>
-                            <li>Visualiza tu formación final antes de comenzar</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Colocar fichas sin plan de formación, dejando espacios imposibles de llenar.</p>
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugada de Ejemplo</h3>
-                <div class="play-steps">
+            <!-- Tlalpoloa -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-title">
+                        <h3>Tlalpoloa ("Devorar la tierra")</h3>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="example-content">
+                    <div class="example-body">
+                        <div class="play-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
@@ -2198,49 +2378,24 @@
                                 <span class="step-number">5</span>
                                 <div class="step-content">
                                     <p><strong>¡VICTORIA!</strong> Jugador A coloca su última ficha → todas en el tablero → ¡GANA!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-
-        <section id="juego-cempohualli" class="game-section">
-            <h2>Cempohualli <span class="game-translation">("Veinte")</span></h2>
-            <div class="game-meta">
-                <span class="game-type">Cartas · Supervivencia</span>
-                <span>👥 2-6 jugadores</span>
-                <span>🎴 Solo baraja</span>
-            </div>
-            <p class="game-description">Cada carta es una vida. ¡El último jugador en pie gana!</p>
-            
-            <div class="game-subsection">
-                <h3>Preparación</h3>
-                <img src="./instructions/Preparacion Cempohualli@4x.png" alt="Preparación Cempohualli" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugadas</h3>
-                <img src="./instructions/Jugadas Cempohualli@4x.png" alt="Jugadas Cempohualli" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Objetivo</h3>
-                <img src="./instructions/Objetivo Cempohualli@4x.png" alt="Objetivo Cempohualli" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Estrategia</h3>
-                <ul class="strategy-tips">
-                            <li>Conserva tus vidas estratégicamente — a veces es mejor perder una ronda temprano que arriesgarse</li>
-                            <li>Observa cuántas vidas le quedan a cada jugador y ajusta tu agresividad</li>
-                            <li>Cuando tengas solo 1 vida, juega extremadamente conservador</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Luchar por cada ronda sin considerar el costo a largo plazo.</p>
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugada de Ejemplo</h3>
-                <div class="play-steps">
+            <!-- Cempohualli -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-title">
+                        <h3>Cempohualli ("Veinte")</h3>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="example-content">
+                    <div class="example-body">
+                        <div class="play-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
@@ -2269,50 +2424,24 @@
                                 <span class="step-number">5</span>
                                 <div class="step-content">
                                     <p><strong>¡VICTORIA!</strong> Ronda final: Solo quedan A y B. A gana → B sin vidas → ¡A GANA!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-
-        <section id="juego-palehuia" class="game-section">
-            <h2>Palehuia <span class="game-translation">("Ayudar")</span></h2>
-            <div class="game-meta">
-                <span class="game-type">Cartas · Cooperativo</span>
-                <span>👥 2-4 jugadores</span>
-                <span>🎴 Baraja + fichas</span>
-            </div>
-            <p class="game-description">Juego cooperativo: completa 4 pilas del 1 al 5. ¡Trabajen juntos para no perder!</p>
-            
-            <div class="game-subsection">
-                <h3>Preparación</h3>
-                <img src="./instructions/Preparacion Palehuia@4x.png" alt="Preparación Palehuia" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugadas</h3>
-                <img src="./instructions/Jugadas Palehuia@4x.png" alt="Jugadas Palehuia" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Objetivo</h3>
-                <img src="./instructions/Objetivo Palehuia@4x.png" alt="Objetivo Palehuia" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Estrategia</h3>
-                <ul class="strategy-tips">
-                            <li><strong>Comuniquen constantemente</strong> — este es el único juego cooperativo</li>
-                            <li>Prioriza completar pilas en lugar de iniciar nuevas</li>
-                            <li>Administra los Tetl cuidadosamente — si un color se agota, pierden</li>
-                            <li>Si una pila está cerca de quemarse, enfoquen recursos para completarla</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Jugar de forma individual en lugar de coordinarse como equipo.</p>
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugada de Ejemplo</h3>
-                <div class="play-steps">
+            <!-- Palehuia -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-title">
+                        <h3>Palehuia ("Ayudar") — Cooperativo</h3>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="example-content">
+                    <div class="example-body">
+                        <div class="play-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
@@ -2348,49 +2477,24 @@
                                 <div class="step-content">
                                     <p><strong>PÉRDIDA POSIBLE:</strong> Se queman 2 pilas más → ¡3 quemadas = TODOS PIERDEN!<br>
                                     <strong>VICTORIA POSIBLE:</strong> ¡Completan las 4 pilas antes de quemar 3 → TODOS GANAN!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-
-        <section id="juego-tlapatlani" class="game-section">
-            <h2>Tlapatlani <span class="game-translation">("Intercambiar")</span></h2>
-            <div class="game-meta">
-                <span class="game-type">Cartas · Colección</span>
-                <span>👥 2-4 jugadores</span>
-                <span>🎴 Solo baraja</span>
-            </div>
-            <p class="game-description">Completa primero tus 4 pilas organizadas por tipo de ilustración.</p>
-            
-            <div class="game-subsection">
-                <h3>Preparación</h3>
-                <img src="./instructions/Preparacion Tlapatlani@4x.png" alt="Preparación Tlapatlani" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugadas</h3>
-                <img src="./instructions/Jugadas Tlapatlani@4x.png" alt="Jugadas Tlapatlani" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Objetivo</h3>
-                <img src="./instructions/Objetivo Tlapatlani@4x.png" alt="Objetivo Tlapatlani" loading="lazy">
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Estrategia</h3>
-                <ul class="strategy-tips">
-                            <li>Decide temprano qué 4 categorías vas a coleccionar y mantente firme</li>
-                            <li>Intercambia agresivamente — cada intercambio te acerca a la victoria</li>
-                            <li>Observa qué categorías están coleccionando tus oponentes para evitar competir</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Cambiar de categoría a mitad del juego en lugar de comprometerse con tus colecciones iniciales.</p>
-            </div>
-            
-            <div class="game-subsection">
-                <h3>Jugada de Ejemplo</h3>
-                <div class="play-steps">
+            <!-- Tlapatlani -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-title">
+                        <h3>Tlapatlani ("Intercambiar")</h3>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="example-content">
+                    <div class="example-body">
+                        <div class="play-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
@@ -2419,9 +2523,290 @@
                                 <span class="step-number">5</span>
                                 <div class="step-content">
                                     <p><strong>¡VICTORIA!</strong> Jugador A completa pilas de aves (5) y árboles (5) antes → ¡GANA!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- SECTION 2.5: ESTRATEGIAS -->
+        <section id="estrategias">
+            <h2>Guías de Estrategia</h2>
+            <p class="text-center mb-lg">Mejora tu juego con estos consejos y técnicas avanzadas para cada modo.</p>
+
+            <!-- Ce -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Ce ("Uno")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Rastrea ambos ejes de color (margen + fondo) simultáneamente para maximizar opciones</li>
+                            <li>Guarda cartas Tlapiani (comodines) para cuando estés bloqueado — nunca las juegues en el primer turno</li>
+                            <li>Juega Pájaros cuando el oponente acabe de robar muchas cartas para retrasar su progreso</li>
+                            <li>Con cartas de doble coincidencia: solo encadena cuando ambas te acerquen a la victoria</li>
+                            <li><strong>SIEMPRE grita "Ce Amapatolli" en tu penúltima carta</strong> — olvidarlo te cuesta 3 cartas</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Jugar comodines demasiado temprano y quedarse sin opciones defensivas en el momento crítico.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ixtli -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Ixtli ("Ojo/Rostro")</h3>
+                        <span class="difficulty-badge principiante">Principiante</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Memoriza tu tablero ANTES de que comience el juego (tómate 10 segundos completos)</li>
+                            <li>Escanea por cuadrantes, no linealmente de izquierda a derecha</li>
+                            <li>Cuando tengas 6 fichas colocadas, fija tu mirada en la ÚNICA ilustración que te falta</li>
+                            <li>Agrupa mentalmente las ilustraciones por categorías (animales, elementos, objetos)</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Escanear en orden lineal en lugar de por agrupaciones visuales. El cerebro reconoce patrones más rápido que secuencias.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pamitl -->
+            <div class="strategy-card estrategia">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Pamitl ("Bandera/Fila")</h3>
+                        <span class="difficulty-badge avanzado">Avanzado</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li><strong>Siempre toma el centro (3,3) en el movimiento 1</strong> — controla el mayor número de líneas ganadoras</li>
+                            <li>Crea bifurcaciones de doble amenaza (dos líneas ganadoras simultáneas que tu oponente no puede bloquear)</li>
+                            <li>No descuides las diagonales — muchos jugadores se centran solo en horizontales/verticales</li>
+                            <li>Valor de casillas: centro > adyacentes al centro > bordes > esquinas</li>
+                            <li>Cuenta las líneas potenciales de tu oponente y bloquea la más peligrosa</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Jugar reactivamente sin construir tus propias amenazas. En Pamitl, quien ataca primero gana.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pinotl -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Pinotl ("Pila/Montón")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li><strong>Esto es un juego de RITMO, no de velocidad</strong> — descartar rápido al inicio es contraproducente</li>
+                            <li>Identifica tus cartas "peso muerto" (ilustraciones raras que no emparejan) y descártalas primero</li>
+                            <li>Guarda Tlapiani para el endgame cuando tengas cartas injugables</li>
+                            <li>Observa qué ilustraciones están descartando tus oponentes para saber cuáles ya no están en juego</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Competir por descartar temprano. Los jugadores que avanzan rápido al inicio suelen quedarse estancados al final.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tecuia -->
+            <div class="strategy-card estrategia">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Tecuia ("Golpear")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Visualiza tus secuencias antes de colocar — necesitas 5 cartas consecutivas del mismo color</li>
+                            <li>Bloquea las secuencias largas del oponente colocando cartas en sus espacios clave</li>
+                            <li>Planea desde el valor central hacia fuera para mayor flexibilidad</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>No anticipar qué números necesitarás y colocar cartas sin estrategia de secuencia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atoyatl -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Atoyatl ("Río")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Mantén cartas de múltiples valores para tener opciones sin importar qué se juegue</li>
+                            <li>Los valores bajos son más flexibles — guárdalos para maniobrar al final</li>
+                            <li>Anticipa qué puede jugar tu oponente basándote en el valor actual</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Descartar valores extremos (muy altos o muy bajos) demasiado pronto y quedar sin opciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cayahua -->
+            <div class="strategy-card estrategia">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Cayahua ("Dejar caer")</h3>
+                        <span class="difficulty-badge avanzado">Avanzado</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Controla el centro del diamante para dominar el territorio</li>
+                            <li>Cada captura debe mejorar tu posición, no solo reducir fichas del oponente</li>
+                            <li>Deja al oponente sin movimientos seguros forzándolo a posiciones vulnerables</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Capturar por capturar sin considerar cómo afecta la estructura del tablero.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tlalpoloa -->
+            <div class="strategy-card estrategia">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Tlalpoloa ("Devorar la tierra")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Expande desde el centro hacia afuera en forma de diamante compacto</li>
+                            <li>Bloquea espacios clave del oponente mientras aseguras los tuyos</li>
+                            <li>Visualiza tu formación final antes de comenzar</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Colocar fichas sin plan de formación, dejando espacios imposibles de llenar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cempohualli -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Cempohualli ("Veinte")</h3>
+                        <span class="difficulty-badge principiante">Principiante</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Conserva tus vidas estratégicamente — a veces es mejor perder una ronda temprano que arriesgarse</li>
+                            <li>Observa cuántas vidas le quedan a cada jugador y ajusta tu agresividad</li>
+                            <li>Cuando tengas solo 1 vida, juega extremadamente conservador</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Luchar por cada ronda sin considerar el costo a largo plazo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Palehuia -->
+            <div class="strategy-card cooperativo">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Palehuia ("Ayudar")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li><strong>Comuniquen constantemente</strong> — este es el único juego cooperativo</li>
+                            <li>Prioriza completar pilas en lugar de iniciar nuevas</li>
+                            <li>Administra los Tetl cuidadosamente — si un color se agota, pierden</li>
+                            <li>Si una pila está cerca de quemarse, enfoquen recursos para completarla</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Jugar de forma individual en lugar de coordinarse como equipo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tlapatlani -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Tlapatlani ("Intercambiar")</h3>
+                        <span class="difficulty-badge principiante">Principiante</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Decide temprano qué 4 categorías vas a coleccionar y mantente firme</li>
+                            <li>Intercambia agresivamente — cada intercambio te acerca a la victoria</li>
+                            <li>Observa qué categorías están coleccionando tus oponentes para evitar competir</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Cambiar de categoría a mitad del juego en lugar de comprometerse con tus colecciones iniciales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- SECTION 3: BARAJA -->
         <section id="baraja">

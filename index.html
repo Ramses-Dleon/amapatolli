@@ -11,6 +11,8 @@
     <meta property="og:image" content="https://amapatolli-companion.vercel.app/cards/rojo/rojo1.png">
     <meta name="theme-color" content="#1a1a2e">
     <link rel="icon" type="image/png" href="./icons/Tipo@4x.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./icons/Tipo@4x.png">
     <title>Amapatolli Companion — Colección Tonalli</title>
     <style>
         /* === RESET & BASE === */
@@ -4245,6 +4247,10 @@
                 });
             }
         });
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').catch(() => {});
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+{
+  "name": "Amapatolli Companion",
+  "short_name": "Amapatolli",
+  "description": "Guía companion para los 11 juegos de la Colección Tonalli — Estudio Tochcalli",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#231f20",
+  "theme_color": "#d0b36e",
+  "orientation": "any",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "./icons/Tipo@4x.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

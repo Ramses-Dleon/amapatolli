@@ -1331,6 +1331,7 @@
         /* === GLOSSARY === */
         .glossary-grid {
             display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: var(--spacing-md);
         }
 
@@ -1447,6 +1448,7 @@
             }
 
             .glossary-grid {
+                grid-template-columns: 1fr;
                 gap: var(--spacing-sm);
             }
 
@@ -1876,7 +1878,7 @@
                 <a href="#tlapatlani" class="game-card-thumb" data-tab-link="tlapatlani">
                     <h4>Tlapatlani</h4>
                     <p class="game-type">Cartas · Colección</p>
-                    <p class="game-players">• 2-6 jugadores</p>
+                    <p class="game-players">• 2-5 jugadores</p>
                 </a>
             </div>
         </section>
@@ -2683,11 +2685,21 @@
             <h2>Tlapatlani <span class="game-translation">("Intercambiar")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Colección</span>
-                <span>• 2-4 jugadores</span>
+                <span>• 2-5 jugadores</span>
                 <span>• Solo baraja</span>
             </div>
             <p class="game-description">Completa primero tus 4 pilas organizadas por tipo de ilustración.</p>
             
+            <div class="game-subsection" style="background: var(--bg-card); border: 1px solid var(--gold); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Ajuste por número de jugadores</h4>
+                <p>Con 5 jugadores se usa la baraja completa. Para menos jugadores, hay que <strong>remover cuartetos completos</strong> (4 cartas de la misma figura, una de cada color):</p>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>4 jugadores:</strong> Remover 4 cuartetos</li>
+                    <li><strong>3 jugadores:</strong> Remover 8 cuartetos</li>
+                    <li><strong>2 jugadores:</strong> Remover 12 cuartetos</li>
+                </ul>
+            </div>
+
             <div class="game-subsection">
                 <h3>Preparación</h3>
                 <img src="./instructions/Preparacion Tlapatlani@4x.png" alt="Preparación Tlapatlani" loading="lazy">
@@ -3586,7 +3598,7 @@
             tlalpoloa: { players: [2], duration: 'medio', type: 'estrategia' },
             cempohualli: { players: [2, 3, 4, 5, 6], duration: 'medio', type: 'velocidad' },
             palehuia: { players: [2, 3, 4], duration: 'largo', type: 'cooperativo' },
-            tlapatlani: { players: [2, 3, 4], duration: 'medio', type: 'velocidad' }
+            tlapatlani: { players: [2, 3, 4, 5], duration: 'medio', type: 'velocidad' }
         };
 
         function updateGameRecommendations() {

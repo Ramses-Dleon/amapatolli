@@ -1755,6 +1755,41 @@
             <p><strong>Amapatolli</strong> no es un solo juego — es un <em>sistema de juegos</em> que usa el mismo mazo de cartas (y opcionalmente el tablero Huapalli y fichas Tetl) para múltiples modos de juego con mecánicas distintas.</p>
             <p>La baraja se basa en la iconografía mesoamericana, los 20 signos del <em>tonalpohualli</em> (calendario ritual de 260 días) y los 4 rumbos cósmicos del universo náhuatl.</p>
         </div>
+        <!-- Game Selector -->
+        <div class="game-selector" style="background: var(--bg-card); border: 2px solid var(--gold); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+            <h3 style="color: var(--gold); margin-bottom: 1rem;">¿Qué juego jugamos?</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin-bottom: 1rem;">
+                <div>
+                    <label style="color: var(--text-secondary); font-size: 0.85rem;">👥 Jugadores</label>
+                    <select id="players" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--gold); background: var(--bg-secondary); color: var(--text-primary);">
+                        <option value="any">Cualquiera</option>
+                        <option value="2">2 jugadores</option>
+                        <option value="3-4">3-4 jugadores</option>
+                        <option value="5-6">5-6 jugadores</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="color: var(--text-secondary); font-size: 0.85rem;">⏱️ Tiempo</label>
+                    <select id="duration" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--gold); background: var(--bg-secondary); color: var(--text-primary);">
+                        <option value="any">Cualquiera</option>
+                        <option value="rapido">Rápido (10-15 min)</option>
+                        <option value="medio">Medio (20-30 min)</option>
+                        <option value="largo">Largo (30+ min)</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="color: var(--text-secondary); font-size: 0.85rem;">🎯 Tipo</label>
+                    <select id="gameType" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--gold); background: var(--bg-secondary); color: var(--text-primary);">
+                        <option value="any">Cualquiera</option>
+                        <option value="velocidad">Velocidad</option>
+                        <option value="estrategia">Estrategia</option>
+                        <option value="cooperativo">Cooperativo</option>
+                    </select>
+                </div>
+            </div>
+            <div id="selectorResults"></div>
+        </div>
+
         <nav class="nav-grid" aria-label="Secciones">
             <a href="javascript:void(0)" onclick="switchTab('ce')" class="nav-button">Ce</a>
             <a href="javascript:void(0)" onclick="switchTab('ixtli')" class="nav-button">Ixtli</a>
@@ -3611,9 +3646,11 @@
             resultsDiv.classList.add('active');
         }
 
-        document.getElementById('players').addEventListener('change', updateGameRecommendations);
-        document.getElementById('duration').addEventListener('change', updateGameRecommendations);
-        document.getElementById('gameType').addEventListener('change', updateGameRecommendations);
+        if (document.getElementById('players')) {
+            document.getElementById('players').addEventListener('change', updateGameRecommendations);
+            document.getElementById('duration').addEventListener('change', updateGameRecommendations);
+            document.getElementById('gameType').addEventListener('change', updateGameRecommendations);
+        }
 
         // ===== STRATEGY ACCORDION =====
         document.querySelectorAll('.strategy-header').forEach(header => {

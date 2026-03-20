@@ -21,20 +21,33 @@
         }
 
         :root {
-            /* Color palette - Dark Mode (default) */
-            --obsidian: #1a1a2e;
-            --obsidian-light: #252541;
-            --gold: #d4a373;
-            --terracotta: #c1666b;
-            --jade: #48a9a6;
-            --white: #f5f5f5;
-            --gray: #c0c0c0;
+            /* Color palette - Dark Mode (default) - Jorge's Actual Colors */
+            --bg-primary: #231f20;      /* Card interior black */
+            --bg-secondary: #2d2926;    /* Slightly lighter */
+            --bg-card: #332e2b;         /* Card/section background */
+            --gold: #d0b36e;            /* Card border gold — primary accent */
+            --cyan: #3697b5;            /* Instruction blue — secondary accent */
+            --red: #ed2c30;             /* Card red — alerts, highlights */
+            --green: #2a853b;           /* Illustration green — success */
+            --yellow: #f7e019;          /* Illustration yellow — warnings */
+            --text-primary: #f5f0e0;    /* Warm white */
+            --text-secondary: #c0b8a8;  /* Muted warm gray */
+            --border: #d0b36e;          /* Gold borders */
+            --papyrus: #f5e6c8;         /* Image backgrounds */
+
+            /* Legacy aliases for compatibility */
+            --obsidian: #231f20;
+            --obsidian-light: #2d2926;
+            --terracotta: #ed2c30;
+            --jade: #3697b5;
+            --white: #f5f0e0;
+            --gray: #c0b8a8;
 
             /* Card colors */
-            --rojo: #c1666b;
-            --azul: #48a9a6;
-            --negro: #2a2a2a;
-            --blanco: #e8e8e8;
+            --rojo: #ed2c30;
+            --azul: #3697b5;
+            --negro: #231f20;
+            --blanco: #f5f0e0;
 
             /* Spacing */
             --spacing-xs: 0.5rem;
@@ -49,13 +62,26 @@
 
         /* Light Mode Theme */
         html[data-theme="light"] {
-            --obsidian: #f8f6f0;
+            --bg-primary: #f5e6c8;      /* Papyrus/parchment */
+            --bg-secondary: #ece0cc;    /* Slightly darker parchment */
+            --bg-card: #ffffff;         /* White cards */
+            --gold: #8B6914;            /* Darker gold for contrast */
+            --cyan: #2a7a94;            /* Darker cyan */
+            --red: #c41e22;             /* Darker red */
+            --green: #1e6b2e;           /* Darker green */
+            --yellow: #b5a20e;          /* Darker yellow */
+            --text-primary: #231f20;    /* Dark text */
+            --text-secondary: #5a524a;  /* Muted dark */
+            --border: #d0b36e;          /* Gold stays */
+            --papyrus: #f5e6c8;         /* Same papyrus for images */
+
+            /* Legacy aliases for light mode */
+            --obsidian: #f5e6c8;
             --obsidian-light: #ffffff;
-            --gold: #8B6914;
-            --terracotta: #a14448;
-            --jade: #2d7a77;
-            --white: #2a2a2e;
-            --gray: #666666;
+            --terracotta: #c41e22;
+            --jade: #2a7a94;
+            --white: #231f20;
+            --gray: #5a524a;
         }
 
         html[data-theme="light"] section {
@@ -179,7 +205,121 @@
             color: var(--white);
         }
 
-        /* === NAVIGATION === */
+        /* === TAB NAVIGATION === */
+        .tab-bar {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: var(--bg-primary);
+            border-bottom: 2px solid var(--gold);
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) var(--bg-secondary);
+        }
+
+        .tab-bar::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .tab-bar::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        .tab-bar::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 0;
+            min-width: min-content;
+            padding: 0;
+        }
+
+        .tab-button {
+            flex-shrink: 0;
+            padding: 0.75rem 1.25rem;
+            min-height: 44px;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+        }
+
+        .tab-button.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+            background: var(--bg-secondary);
+        }
+
+        /* Tab content visibility */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Game overview grid for Inicio tab */
+        .game-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .game-card-thumb {
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
+            padding: var(--spacing-md);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: block;
+        }
+
+        .game-card-thumb:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(208, 179, 110, 0.3);
+            border-color: var(--cyan);
+        }
+
+        .game-card-thumb h4 {
+            color: var(--gold);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.2rem;
+        }
+
+        .game-card-thumb .game-type {
+            color: var(--cyan);
+            font-size: 0.85rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .game-card-thumb .game-players {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* === OLD NAVIGATION (kept for Inicio tab) === */
         .nav-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1580,8 +1720,32 @@
     <!-- THEME TOGGLE BUTTON -->
     <button id="themeToggle" aria-label="Toggle theme">🌙</button>
 
-    <!-- HERO / LANDING -->
-    <section class="hero">
+    <!-- TAB NAVIGATION BAR -->
+    <nav class="tab-bar" role="navigation" aria-label="Navegación principal">
+        <div class="tab-nav">
+            <button class="tab-button active" data-tab="inicio">Inicio</button>
+            <button class="tab-button" data-tab="ce">Ce</button>
+            <button class="tab-button" data-tab="ixtli">Ixtli</button>
+            <button class="tab-button" data-tab="pamitl">Pamitl</button>
+            <button class="tab-button" data-tab="pinotl">Pinotl</button>
+            <button class="tab-button" data-tab="tecuia">Tecuia</button>
+            <button class="tab-button" data-tab="atoyatl">Atoyatl</button>
+            <button class="tab-button" data-tab="cayahua">Cayahua</button>
+            <button class="tab-button" data-tab="tlalpoloa">Tlalpoloa</button>
+            <button class="tab-button" data-tab="cempohualli">Cempohualli</button>
+            <button class="tab-button" data-tab="palehuia">Palehuia</button>
+            <button class="tab-button" data-tab="tlapatlani">Tlapatlani</button>
+            <button class="tab-button" data-tab="baraja">Baraja</button>
+            <button class="tab-button" data-tab="signos">Signos</button>
+            <button class="tab-button" data-tab="glosario">Glosario</button>
+            <button class="tab-button" data-tab="info">Info</button>
+        </div>
+    </nav>
+
+    <!-- TAB CONTENT: INICIO -->
+    <div class="tab-content active" data-tab="inicio">
+        <!-- HERO / LANDING -->
+        <section class="hero">
         <h1>Amapatolli Companion</h1>
         <p class="subtitle">Colección Tonalli — Estudio Tochcalli</p>
         <div class="intro">
@@ -1589,28 +1753,94 @@
             <p>La baraja se basa en la iconografía mesoamericana, los 20 signos del <em>tonalpohualli</em> (calendario ritual de 260 días) y los 4 rumbos cósmicos del universo náhuatl.</p>
         </div>
         <nav class="nav-grid" aria-label="Secciones">
-            <a href="#juego-ce" class="nav-button">Ce</a>
-            <a href="#juego-ixtli" class="nav-button">Ixtli</a>
-            <a href="#juego-pamitl" class="nav-button">Pamitl</a>
-            <a href="#juego-pinotl" class="nav-button">Pinotl</a>
-            <a href="#juego-tecuia" class="nav-button">Tecuia</a>
-            <a href="#juego-atoyatl" class="nav-button">Atoyatl</a>
-            <a href="#juego-cayahua" class="nav-button">Cayahua</a>
-            <a href="#juego-tlalpoloa" class="nav-button">Tlalpoloa</a>
-            <a href="#juego-cempohualli" class="nav-button">Cempohualli</a>
-            <a href="#juego-palehuia" class="nav-button">Palehuia</a>
-            <a href="#juego-tlapatlani" class="nav-button">Tlapatlani</a>
-            <a href="#baraja" class="nav-button">Baraja</a>
-            <a href="#signos" class="nav-button">Signos</a>
-            <a href="#componentes" class="nav-button">Componentes</a>
-            <a href="#glosario" class="nav-button">Glosario</a>
-            <a href="#historia" class="nav-button">Historia</a>
-            <a href="#expansion" class="nav-button">Expansión</a>
+            <a href="javascript:void(0)" onclick="switchTab('ce')" class="nav-button">Ce</a>
+            <a href="javascript:void(0)" onclick="switchTab('ixtli')" class="nav-button">Ixtli</a>
+            <a href="javascript:void(0)" onclick="switchTab('pamitl')" class="nav-button">Pamitl</a>
+            <a href="javascript:void(0)" onclick="switchTab('pinotl')" class="nav-button">Pinotl</a>
+            <a href="javascript:void(0)" onclick="switchTab('tecuia')" class="nav-button">Tecuia</a>
+            <a href="javascript:void(0)" onclick="switchTab('atoyatl')" class="nav-button">Atoyatl</a>
+            <a href="javascript:void(0)" onclick="switchTab('cayahua')" class="nav-button">Cayahua</a>
+            <a href="javascript:void(0)" onclick="switchTab('tlalpoloa')" class="nav-button">Tlalpoloa</a>
+            <a href="javascript:void(0)" onclick="switchTab('cempohualli')" class="nav-button">Cempohualli</a>
+            <a href="javascript:void(0)" onclick="switchTab('palehuia')" class="nav-button">Palehuia</a>
+            <a href="javascript:void(0)" onclick="switchTab('tlapatlani')" class="nav-button">Tlapatlani</a>
+            <a href="javascript:void(0)" onclick="switchTab('baraja')" class="nav-button">Baraja</a>
+            <a href="javascript:void(0)" onclick="switchTab('signos')" class="nav-button">Signos</a>
+            <a href="javascript:void(0)" onclick="switchTab('info')" class="nav-button">Info</a>
+            <a href="javascript:void(0)" onclick="switchTab('glosario')" class="nav-button">Glosario</a>
         </nav>
     </section>
 
+    <!-- GAME OVERVIEW GRID -->
     <div class="container">
-        <section id="juego-ce" class="game-section">
+        <section>
+            <h2>Los 11 Juegos</h2>
+            <div class="game-overview-grid">
+                <a href="#ce" class="game-card-thumb" data-tab-link="ce">
+                    <h4>Ce</h4>
+                    <p class="game-type">Cartas · Velocidad/Descarte</p>
+                    <p class="game-players">👥 2-6 jugadores</p>
+                </a>
+                <a href="#ixtli" class="game-card-thumb" data-tab-link="ixtli">
+                    <h4>Ixtli</h4>
+                    <p class="game-type">Cartas · Observación/Velocidad</p>
+                    <p class="game-players">👥 2-4 jugadores</p>
+                </a>
+                <a href="#pamitl" class="game-card-thumb" data-tab-link="pamitl">
+                    <h4>Pamitl</h4>
+                    <p class="game-type">Tablero · Conecta 5</p>
+                    <p class="game-players">👥 2 jugadores</p>
+                </a>
+                <a href="#pinotl" class="game-card-thumb" data-tab-link="pinotl">
+                    <h4>Pinotl</h4>
+                    <p class="game-type">Cartas · Emparejamiento</p>
+                    <p class="game-players">👥 2-4 jugadores</p>
+                </a>
+                <a href="#tecuia" class="game-card-thumb" data-tab-link="tecuia">
+                    <h4>Tecuia</h4>
+                    <p class="game-type">Cartas · Secuencias</p>
+                    <p class="game-players">👥 2-6 jugadores</p>
+                </a>
+                <a href="#atoyatl" class="game-card-thumb" data-tab-link="atoyatl">
+                    <h4>Atoyatl</h4>
+                    <p class="game-type">Cartas · Descarte</p>
+                    <p class="game-players">👥 2-6 jugadores</p>
+                </a>
+                <a href="#cayahua" class="game-card-thumb" data-tab-link="cayahua">
+                    <h4>Cayahua</h4>
+                    <p class="game-type">Tablero · Captura</p>
+                    <p class="game-players">👥 2 jugadores</p>
+                </a>
+                <a href="#tlalpoloa" class="game-card-thumb" data-tab-link="tlalpoloa">
+                    <h4>Tlalpoloa</h4>
+                    <p class="game-type">Tablero · Territorial</p>
+                    <p class="game-players">👥 2 jugadores</p>
+                </a>
+                <a href="#cempohualli" class="game-card-thumb" data-tab-link="cempohualli">
+                    <h4>Cempohualli</h4>
+                    <p class="game-type">Cartas · Supervivencia</p>
+                    <p class="game-players">👥 2-6 jugadores</p>
+                </a>
+                <a href="#palehuia" class="game-card-thumb" data-tab-link="palehuia">
+                    <h4>Palehuia</h4>
+                    <p class="game-type">Cartas · Cooperativo</p>
+                    <p class="game-players">👥 2-4 jugadores</p>
+                </a>
+                <a href="#tlapatlani" class="game-card-thumb" data-tab-link="tlapatlani">
+                    <h4>Tlapatlani</h4>
+                    <p class="game-type">Cartas · Colección</p>
+                    <p class="game-players">👥 2-6 jugadores</p>
+                </a>
+            </div>
+        </section>
+    </div>
+    </div>
+    <!-- END TAB CONTENT: INICIO -->
+
+    <!-- TAB CONTENT: CE -->
+    <div class="tab-content" data-tab="ce">
+        <div class="container">
+            <section id="juego-ce" class="game-section">
             <h2>Ce <span class="game-translation">("Uno")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Velocidad/Descarte</span>
@@ -1681,9 +1911,14 @@
                                     <p><strong>¡VICTORIA!</strong> Jugador C solo tiene 1 carta, grita "¡Ce Amapatolli!" → gana</p>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: CE -->
 
-
-        <section id="juego-ixtli" class="game-section">
+    <!-- TAB CONTENT: IXTLI -->
+    <div class="tab-content" data-tab="ixtli">
+        <div class="container">
+            <section id="juego-ixtli" class="game-section">
             <h2>Ixtli <span class="game-translation">("Ojo/Rostro")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Tablero + Cartas · Observación/Velocidad</span>
@@ -1759,9 +1994,14 @@
                                     <p><strong>¡VICTORIA!</strong> Cantor destapa Mazatl → ¡Jugador A la tiene! Grita "¡Ixtli!" → 7 fichas → ¡GANA!</p>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: IXTLI -->
 
-
-        <section id="juego-pamitl" class="game-section">
+    <!-- TAB CONTENT: PAMITL -->
+    <div class="tab-content" data-tab="pamitl">
+        <div class="container">
+            <section id="juego-pamitl" class="game-section">
             <h2>Pamitl <span class="game-translation">("Bandera/Fila")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Tablero + Fichas · Estrategia abstracta</span>
@@ -1838,9 +2078,14 @@
                                     <p><strong>¡VICTORIA!</strong> Jugador B solo puede bloquear una → Jugador A completa Pamitl → ¡GANA!</p>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: PAMITL -->
 
-
-        <section id="juego-pinotl" class="game-section">
+    <!-- TAB CONTENT: PINOTL -->
+    <div class="tab-content" data-tab="pinotl">
+        <div class="container">
+            <section id="juego-pinotl" class="game-section">
             <h2>Pinotl <span class="game-translation">("Pila/Montón")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Emparejamiento</span>
@@ -1910,9 +2155,14 @@
                                     <p><strong>¡VICTORIA!</strong> Juega su Tlapiani como comodín → empata con la carta restante → ¡GANA!</p>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: PINOTL -->
 
-
-        <section id="juego-tecuia" class="game-section">
+    <!-- TAB CONTENT: TECUIA -->
+    <div class="tab-content" data-tab="tecuia">
+        <div class="container">
+            <section id="juego-tecuia" class="game-section">
             <h2>Tecuia <span class="game-translation">("Golpear")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Secuencia/Posicionamiento</span>
@@ -1981,9 +2231,14 @@
                                     <p><strong>¡VICTORIA!</strong> Jugador A coloca valores 5, 6, 7 → secuencia 3-4-5-6-7 = ¡5 consecutivas! → ¡GANA!</p>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: TECUIA -->
 
-
-        <section id="juego-atoyatl" class="game-section">
+    <!-- TAB CONTENT: ATOYATL -->
+    <div class="tab-content" data-tab="atoyatl">
+        <div class="container">
+            <section id="juego-atoyatl" class="game-section">
             <h2>Atoyatl <span class="game-translation">("Río")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Descarte por valor</span>
@@ -2058,9 +2313,14 @@
                                     <p><strong>¡VICTORIA!</strong> Jugador A coloca su última carta boca abajo → ¡GANA!</p>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: ATOYATL -->
 
-
-        <section id="juego-cayahua" class="game-section">
+    <!-- TAB CONTENT: CAYAHUA -->
+    <div class="tab-content" data-tab="cayahua">
+        <div class="container">
+            <section id="juego-cayahua" class="game-section">
             <h2>Cayahua <span class="game-translation">("Dejar caer")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Tablero + Fichas · Estrategia abstracta</span>
@@ -2129,9 +2389,14 @@
                                     <p><strong>¡VICTORIA!</strong> Jugador B ejecuta captura final → A sin fichas → ¡B GANA!</p>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: CAYAHUA -->
 
-
-        <section id="juego-tlalpoloa" class="game-section">
+    <!-- TAB CONTENT: TLALPOLOA -->
+    <div class="tab-content" data-tab="tlalpoloa">
+        <div class="container">
+            <section id="juego-tlalpoloa" class="game-section">
             <h2>Tlalpoloa <span class="game-translation">("Devorar la tierra")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Tablero + Fichas · Colocación</span>
@@ -2200,9 +2465,14 @@
                                     <p><strong>¡VICTORIA!</strong> Jugador A coloca su última ficha → todas en el tablero → ¡GANA!</p>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: TLALPOLOA -->
 
-
-        <section id="juego-cempohualli" class="game-section">
+    <!-- TAB CONTENT: CEMPOHUALLI -->
+    <div class="tab-content" data-tab="cempohualli">
+        <div class="container">
+            <section id="juego-cempohualli" class="game-section">
             <h2>Cempohualli <span class="game-translation">("Veinte")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Supervivencia</span>
@@ -2271,9 +2541,14 @@
                                     <p><strong>¡VICTORIA!</strong> Ronda final: Solo quedan A y B. A gana → B sin vidas → ¡A GANA!</p>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: CEMPOHUALLI -->
 
-
-        <section id="juego-palehuia" class="game-section">
+    <!-- TAB CONTENT: PALEHUIA -->
+    <div class="tab-content" data-tab="palehuia">
+        <div class="container">
+            <section id="juego-palehuia" class="game-section">
             <h2>Palehuia <span class="game-translation">("Ayudar")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Cooperativo</span>
@@ -2350,9 +2625,14 @@
                                     <strong>VICTORIA POSIBLE:</strong> ¡Completan las 4 pilas antes de quemar 3 → TODOS GANAN!</p>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: PALEHUIA -->
 
-
-        <section id="juego-tlapatlani" class="game-section">
+    <!-- TAB CONTENT: TLAPATLANI -->
+    <div class="tab-content" data-tab="tlapatlani">
+        <div class="container">
+            <section id="juego-tlapatlani" class="game-section">
             <h2>Tlapatlani <span class="game-translation">("Intercambiar")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Colección</span>
@@ -2421,10 +2701,15 @@
                                     <p><strong>¡VICTORIA!</strong> Jugador A completa pilas de aves (5) y árboles (5) antes → ¡GANA!</p>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: TLAPATLANI -->
 
-
-        <!-- SECTION 3: BARAJA -->
-        <section id="baraja">
+    <!-- TAB CONTENT: BARAJA -->
+    <div class="tab-content" data-tab="baraja">
+        <div class="container">
+            <!-- SECTION 3: BARAJA -->
+            <section id="baraja">
             <h2>La Baraja Amapatolli</h2>
             <p class="text-center">84 cartas divididas en 4 colores correspondientes a los rumbos cósmicos mesoamericanos.</p>
 
@@ -2469,9 +2754,15 @@
                 <!-- Cards will be generated by JavaScript -->
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: BARAJA -->
 
-        <!-- SECTION 3: SIGNOS DEL TONALPOHUALLI -->
-        <section id="signos">
+    <!-- TAB CONTENT: SIGNOS -->
+    <div class="tab-content" data-tab="signos">
+        <div class="container">
+            <!-- SECTION 3: SIGNOS DEL TONALPOHUALLI -->
+            <section id="signos">
             <h2>Los 20 Signos del Tonalpohualli</h2>
             <p class="text-center">El <em>tonalpohualli</em> es el calendario ritual mesoamericano de 260 días, compuesto por 20 signos combinados con 13 numerales.</p>
 
@@ -2617,9 +2908,15 @@
                 </div>
             </div>
         </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: SIGNOS -->
 
-        <!-- SECTION 4: COMPONENTES -->
-        <section id="componentes">
+    <!-- TAB CONTENT: INFO (Componentes, Historia, Expansion) -->
+    <div class="tab-content" data-tab="info">
+        <div class="container">
+            <!-- SECTION 4: COMPONENTES -->
+            <section id="componentes">
             <h2>Componentes del Sistema</h2>
             <p class="text-center">Amapatolli utiliza diferentes combinaciones de componentes según el juego elegido.</p>
 
@@ -2673,8 +2970,133 @@
             </table>
         </section>
 
-        <!-- SECTION 5: GLOSARIO NÁHUATL -->
-        <section id="glosario">
+        <!-- SECTION 6: HISTORIA & CULTURA -->
+        <section id="historia">
+            <h2>Historia & Significado Cultural</h2>
+
+            <h3>Acerca de Estudio Tochcalli</h3>
+            <p>Estudio Tochcalli es un proyecto dedicado a la creación de contenido cultural, educativo y lúdico inspirado en las tradiciones mesoamericanas. La <em>Colección Tonalli</em> busca conectar el juego moderno con la rica simbología y cosmovisión de las culturas náhuatl.</p>
+            <p>Más información: <a href="https://estudiotochcalli.mx" target="_blank" style="color: var(--jade);">estudiotochcalli.mx</a></p>
+
+            <h3 class="mt-lg">Los 4 Rumbos Cósmicos</h3>
+            <p>Los cuatro colores de la baraja corresponden a los 4 rumbos del universo mesoamericano según el Tonalamatl de los Pochtecas:</p>
+
+            <div class="component-grid mt-lg">
+                <div class="component-card" style="border-color: var(--rojo);">
+                    <h4 style="color: var(--rojo);">Rojo — Oriente</h4>
+                    <p><em>Tlatlauhqui</em></p>
+                    <p>El rumbo del sol naciente, el inicio, la renovación.</p>
+                </div>
+
+                <div class="component-card" style="border-color: var(--azul);">
+                    <h4 style="color: var(--azul);">Azul — Norte</h4>
+                    <p><em>Texotli</em></p>
+                    <p>El rumbo de la oscuridad, el frío, la reflexión.</p>
+                </div>
+
+                <div class="component-card" style="border-color: var(--negro);">
+                    <h4>Negro — Poniente</h4>
+                    <p><em>Tliltic</em></p>
+                    <p>El rumbo del ocaso, la transformación, el misterio.</p>
+                </div>
+
+                <div class="component-card" style="border-color: var(--blanco);">
+                    <h4>Blanco — Sur</h4>
+                    <p><em>Iztac</em></p>
+                    <p>El rumbo de la luz, el calor, la vitalidad.</p>
+                </div>
+            </div>
+
+            <h3 class="mt-lg">Las 4 Tlapiani: Señores de la Noche</h3>
+            <p>Los cuatro comodines representan a 4 de los 9 Señores de la Noche (<em>Yohualteteuctin</em>) del panteón mesoamericano:</p>
+
+            <div class="tlapiani-grid">
+                <div class="tlapiani-card blanco">
+                    <h4>Itztli</h4>
+                    <p class="nahuatl">"Cuchillo de Pedernal"</p>
+                    <p class="domain">Color: Blanco (iztac)</p>
+                    <p class="domain">Dominio: Sacrificio, justicia</p>
+                </div>
+
+                <div class="tlapiani-card negro">
+                    <h4>Tláloc</h4>
+                    <p class="nahuatl">"Dios de la lluvia"</p>
+                    <p class="domain">Color: Negro (tliltic)</p>
+                    <p class="domain">Dominio: Lluvia, fertilidad, agua celeste</p>
+                </div>
+
+                <div class="tlapiani-card rojo">
+                    <h4>Tlazoltéotl</h4>
+                    <p class="nahuatl">"Diosa de las inmundicias"</p>
+                    <p class="domain">Color: Rojo (tlatlauhqui)</p>
+                    <p class="domain">Dominio: Purificación, placer, confesión</p>
+                </div>
+
+                <div class="tlapiani-card azul">
+                    <h4>Mictlantecuhtli</h4>
+                    <p class="nahuatl">"Dios de la muerte"</p>
+                    <p class="domain">Color: Azul (texotli)</p>
+                    <p class="domain">Dominio: Muerte, inframundo, tránsito</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: EXPANSIÓN YOHUALLI -->
+        <section id="expansion" class="coming-soon">
+            <h2>Expansión Yohualli</h2>
+            <p class="teaser">La noche se acerca...</p>
+            <p>La expansión <em>Yohualli</em> ("Noche") traerá un nuevo palo de 21 cartas con temática nocturna, completando los 9 Señores de la Noche.</p>
+
+            <h3 style="color: var(--gold); margin-top: var(--spacing-lg);">Los 5 Señores Restantes</h3>
+            <div class="lords-grid">
+                <div class="lord-card">
+                    <h5>5. Xiuhtecuhtli</h5>
+                    <span class="nahuatl">"Señor del fuego"</span>
+                    <p>Fuego, centro cósmico, transformación</p>
+                </div>
+
+                <div class="lord-card">
+                    <h5>6. Tonatiuh-Piltzintecuhtli</h5>
+                    <span class="nahuatl">"Sol joven"</span>
+                    <p>Sol, luz, ciclos, tiempo</p>
+                </div>
+
+                <div class="lord-card">
+                    <h5>7. Chalchiuhtlicue</h5>
+                    <span class="nahuatl">"La de la falda de jade"</span>
+                    <p>Agua terrestre, jade, fertilidad</p>
+                </div>
+
+                <div class="lord-card">
+                    <h5>8. Cintéotl</h5>
+                    <span class="nahuatl">"Dios del maíz"</span>
+                    <p>Sustento, crecimiento, maíz</p>
+                </div>
+
+                <div class="lord-card">
+                    <h5>9. Tepeyóllotl</h5>
+                    <span class="nahuatl">"Corazón del monte"</span>
+                    <p>Eco, cavernas, jaguar, interior de la tierra</p>
+                </div>
+            </div>
+
+            <div class="info-box mt-lg">
+                <h4>Contenido Propuesto</h4>
+                <p>• 21 cartas nocturnas: 7 Señores + 7 Encrucijadas + 7 Ofrendas</p>
+                <p>• Compatibilidad con todos los juegos existentes</p>
+                <p>• Nuevos efectos especiales y mecánicas</p>
+                <p>• Posible 5to color de fichas (púrpura/morado para "noche")</p>
+            </div>
+        </section>
+        </div>
+    </div>
+    <!-- END TAB CONTENT: INFO -->
+
+    <!-- TAB CONTENT: GLOSARIO -->
+    <div class="tab-content" data-tab="glosario">
+        <div class="container">
+            <!-- SECTION 5: GLOSARIO NÁHUATL -->
+            <section id="glosario">
             <h2>Glosario Náhuatl</h2>
             <p class="text-center mb-lg">Pronunciación, traducción y significado de los términos clave del sistema Amapatolli.</p>
 
@@ -2967,126 +3389,9 @@
                 </div>
             </div>
         </section>
-
-        <!-- SECTION 6: HISTORIA & CULTURA -->
-        <section id="historia">
-            <h2>Historia & Significado Cultural</h2>
-
-            <h3>Acerca de Estudio Tochcalli</h3>
-            <p>Estudio Tochcalli es un proyecto dedicado a la creación de contenido cultural, educativo y lúdico inspirado en las tradiciones mesoamericanas. La <em>Colección Tonalli</em> busca conectar el juego moderno con la rica simbología y cosmovisión de las culturas náhuatl.</p>
-            <p>Más información: <a href="https://estudiotochcalli.mx" target="_blank" style="color: var(--jade);">estudiotochcalli.mx</a></p>
-
-            <h3 class="mt-lg">Los 4 Rumbos Cósmicos</h3>
-            <p>Los cuatro colores de la baraja corresponden a los 4 rumbos del universo mesoamericano según el Tonalamatl de los Pochtecas:</p>
-
-            <div class="component-grid mt-lg">
-                <div class="component-card" style="border-color: var(--rojo);">
-                    <h4 style="color: var(--rojo);">Rojo — Oriente</h4>
-                    <p><em>Tlatlauhqui</em></p>
-                    <p>El rumbo del sol naciente, el inicio, la renovación.</p>
-                </div>
-
-                <div class="component-card" style="border-color: var(--azul);">
-                    <h4 style="color: var(--azul);">Azul — Norte</h4>
-                    <p><em>Texotli</em></p>
-                    <p>El rumbo de la oscuridad, el frío, la reflexión.</p>
-                </div>
-
-                <div class="component-card" style="border-color: var(--negro);">
-                    <h4>Negro — Poniente</h4>
-                    <p><em>Tliltic</em></p>
-                    <p>El rumbo del ocaso, la transformación, el misterio.</p>
-                </div>
-
-                <div class="component-card" style="border-color: var(--blanco);">
-                    <h4>Blanco — Sur</h4>
-                    <p><em>Iztac</em></p>
-                    <p>El rumbo de la luz, el calor, la vitalidad.</p>
-                </div>
-            </div>
-
-            <h3 class="mt-lg">Las 4 Tlapiani: Señores de la Noche</h3>
-            <p>Los cuatro comodines representan a 4 de los 9 Señores de la Noche (<em>Yohualteteuctin</em>) del panteón mesoamericano:</p>
-
-            <div class="tlapiani-grid">
-                <div class="tlapiani-card blanco">
-                    <h4>Itztli</h4>
-                    <p class="nahuatl">"Cuchillo de Pedernal"</p>
-                    <p class="domain">Color: Blanco (iztac)</p>
-                    <p class="domain">Dominio: Sacrificio, justicia</p>
-                </div>
-
-                <div class="tlapiani-card negro">
-                    <h4>Tláloc</h4>
-                    <p class="nahuatl">"Dios de la lluvia"</p>
-                    <p class="domain">Color: Negro (tliltic)</p>
-                    <p class="domain">Dominio: Lluvia, fertilidad, agua celeste</p>
-                </div>
-
-                <div class="tlapiani-card rojo">
-                    <h4>Tlazoltéotl</h4>
-                    <p class="nahuatl">"Diosa de las inmundicias"</p>
-                    <p class="domain">Color: Rojo (tlatlauhqui)</p>
-                    <p class="domain">Dominio: Purificación, placer, confesión</p>
-                </div>
-
-                <div class="tlapiani-card azul">
-                    <h4>Mictlantecuhtli</h4>
-                    <p class="nahuatl">"Dios de la muerte"</p>
-                    <p class="domain">Color: Azul (texotli)</p>
-                    <p class="domain">Dominio: Muerte, inframundo, tránsito</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 6: EXPANSIÓN YOHUALLI -->
-        <section id="expansion" class="coming-soon">
-            <h2>Expansión Yohualli</h2>
-            <p class="teaser">La noche se acerca...</p>
-            <p>La expansión <em>Yohualli</em> ("Noche") traerá un nuevo palo de 21 cartas con temática nocturna, completando los 9 Señores de la Noche.</p>
-
-            <h3 style="color: var(--gold); margin-top: var(--spacing-lg);">Los 5 Señores Restantes</h3>
-            <div class="lords-grid">
-                <div class="lord-card">
-                    <h5>5. Xiuhtecuhtli</h5>
-                    <span class="nahuatl">"Señor del fuego"</span>
-                    <p>Fuego, centro cósmico, transformación</p>
-                </div>
-
-                <div class="lord-card">
-                    <h5>6. Tonatiuh-Piltzintecuhtli</h5>
-                    <span class="nahuatl">"Sol joven"</span>
-                    <p>Sol, luz, ciclos, tiempo</p>
-                </div>
-
-                <div class="lord-card">
-                    <h5>7. Chalchiuhtlicue</h5>
-                    <span class="nahuatl">"La de la falda de jade"</span>
-                    <p>Agua terrestre, jade, fertilidad</p>
-                </div>
-
-                <div class="lord-card">
-                    <h5>8. Cintéotl</h5>
-                    <span class="nahuatl">"Dios del maíz"</span>
-                    <p>Sustento, crecimiento, maíz</p>
-                </div>
-
-                <div class="lord-card">
-                    <h5>9. Tepeyóllotl</h5>
-                    <span class="nahuatl">"Corazón del monte"</span>
-                    <p>Eco, cavernas, jaguar, interior de la tierra</p>
-                </div>
-            </div>
-
-            <div class="info-box mt-lg">
-                <h4>Contenido Propuesto</h4>
-                <p>• 21 cartas nocturnas: 7 Señores + 7 Encrucijadas + 7 Ofrendas</p>
-                <p>• Compatibilidad con todos los juegos existentes</p>
-                <p>• Nuevos efectos especiales y mecánicas</p>
-                <p>• Posible 5to color de fichas (púrpura/morado para "noche")</p>
-            </div>
-        </section>
+        </div>
     </div>
+    <!-- END TAB CONTENT: GLOSARIO -->
 
     <!-- FOOTER -->
     <footer style="text-align: center; padding: 2rem 1rem; color: var(--gray); border-top: 1px solid var(--gold); margin-top: 2rem;">
@@ -3132,6 +3437,63 @@
     </div>
 
     <script>
+        // ===== TAB NAVIGATION =====
+        (function initTabs() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function switchTab(tabId) {
+                // Hide all tab contents
+                tabContents.forEach(tc => tc.classList.remove('active'));
+                // Deactivate all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Show target tab
+                const target = document.querySelector(`.tab-content[data-tab="${tabId}"]`);
+                if (target) {
+                    target.classList.add('active');
+                }
+                // Activate button
+                const btn = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+                if (btn) {
+                    btn.classList.add('active');
+                    // Scroll tab into view on mobile
+                    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+
+                // Scroll to top of content
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Update URL hash
+                history.replaceState(null, '', `#${tabId}`);
+            }
+
+            // Click handlers
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    switchTab(btn.dataset.tab);
+                });
+            });
+
+            // Hash navigation
+            function handleHash() {
+                const hash = window.location.hash.slice(1);
+                if (hash && document.querySelector(`.tab-content[data-tab="${hash}"]`)) {
+                    switchTab(hash);
+                }
+            }
+
+            window.addEventListener('hashchange', handleHash);
+            
+            // On load, check hash
+            if (window.location.hash) {
+                handleHash();
+            }
+
+            // Make switchTab available globally for game selector
+            window.switchTab = switchTab;
+        })();
+
         // ===== THEME TOGGLE =====
         (function initTheme() {
             const htmlElement = document.documentElement;
@@ -3236,7 +3598,9 @@
                     <div class="match-percentage">${rec.percentage}%</div>
                 `;
                 div.addEventListener('click', () => {
-                    document.querySelector(`[data-game="${rec.gameId}"]`).click();
+                    if (window.switchTab) {
+                        window.switchTab(rec.gameId);
+                    }
                 });
                 resultsDiv.appendChild(div);
             });

@@ -1119,11 +1119,21 @@
             display: block;
         }
 
+        #selectorResults {
+            padding: 0;
+            margin: 0;
+        }
+
+        #selectorResults > * {
+            margin-left: 0 !important;
+            padding-left: 0;
+        }
+
         .recommendation {
             background: var(--obsidian);
             border: 2px solid var(--jade);
             padding: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
+            margin: 0 0 var(--spacing-sm) 0;
             border-radius: 4px;
             display: flex;
             justify-content: space-between;
@@ -3648,7 +3658,7 @@
                 const game = games[rec.gameId];
                 const div = document.createElement('div');
                 div.className = 'recommendation';
-                div.innerHTML = `<div><strong style="color:var(--gold)">${game.name}</strong><span style="color:var(--gray);font-size:0.9rem"> — ${game.translation}</span><p style="margin:0;font-size:0.9rem;color:var(--white)">${game.type}</p></div><div class="match-percentage">${rec.percentage}%</div>`;
+                div.innerHTML = '<div><strong style="color:var(--gold)">' + game.name + '</strong><span style="color:var(--gray);font-size:0.9rem"> — ' + game.translation + '</span><br><span style="font-size:0.9rem;color:var(--white)">' + game.type + '</span></div><div class="match-percentage">' + rec.percentage + '%</div>';
                 div.addEventListener('click', () => {
                     if (window.switchTab) {
                         window.switchTab(rec.gameId);

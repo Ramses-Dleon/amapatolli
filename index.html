@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amapatolli Companion — Colección Tonalli</title>
+    <style>
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color palette */
+            --obsidian: #1a1a2e;
+            --obsidian-light: #252541;
+            --gold: #d4a373;
+            --terracotta: #c1666b;
+            --jade: #48a9a6;
+            --white: #f5f5f5;
+            --gray: #9b9b9b;
+
+            /* Card colors */
+            --rojo: #c1666b;
+            --azul: #48a9a6;
+            --negro: #2a2a2a;
+            --blanco: #e8e8e8;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Typography */
+            --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--obsidian);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === TYPOGRAPHY === */
+        h1, h2, h3, h4 {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--gold);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: var(--spacing-xs);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--jade);
+        }
+
+        em, i {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        /* === LAYOUT === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+        }
+
+        section {
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: var(--obsidian-light);
+            border: 2px solid var(--gold);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--jade);
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+            background: linear-gradient(135deg, var(--obsidian) 0%, var(--obsidian-light) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-bottom: var(--spacing-md);
+            font-style: italic;
+        }
+
+        .hero .intro {
+            max-width: 800px;
+            margin: var(--spacing-lg) auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--white);
+        }
+
+        /* === NAVIGATION === */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+        }
+
+        .nav-button {
+            padding: var(--spacing-md);
+            background: var(--obsidian-light);
+            border: 2px solid var(--jade);
+            color: var(--white);
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .nav-button:hover {
+            background: var(--jade);
+            color: var(--obsidian);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(72, 169, 166, 0.3);
+        }
+
+        /* === GRID LAYOUTS === */
+        .game-grid, .card-grid, .sign-grid, .component-grid {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .game-grid {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+
+        .card-grid {
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        }
+
+        .sign-grid {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        .component-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* === GAME CARDS === */
+        .game-card {
+            background: var(--obsidian);
+            border: 2px solid var(--gold);
+            padding: var(--spacing-md);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.3);
+            border-color: var(--jade);
+        }
+
+        .game-card h3 {
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.4rem;
+        }
+
+        .game-card .game-type {
+            color: var(--terracotta);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .game-card .game-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+            font-size: 0.9rem;
+        }
+
+        .game-card .game-info span {
+            background: var(--obsidian-light);
+            padding: var(--spacing-xs);
+            border-radius: 4px;
+            border: 1px solid var(--gray);
+        }
+
+        /* === FILTERS === */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--obsidian);
+            border: 2px solid var(--gray);
+            color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--jade);
+            transform: scale(1.05);
+        }
+
+        .filter-btn.active {
+            background: var(--jade);
+            color: var(--obsidian);
+            border-color: var(--jade);
+        }
+
+        .filter-btn.rojo.active {
+            background: var(--rojo);
+        }
+
+        .filter-btn.azul.active {
+            background: var(--azul);
+        }
+
+        .filter-btn.negro.active {
+            background: var(--negro);
+            color: var(--white);
+        }
+
+        .filter-btn.blanco.active {
+            background: var(--blanco);
+            color: var(--obsidian);
+        }
+
+        /* === CARD ITEMS === */
+        .card-item {
+            aspect-ratio: 2/3;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            background: var(--obsidian);
+        }
+
+        .card-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.5);
+            z-index: 10;
+        }
+
+        .card-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* === SIGN CARDS === */
+        .sign-card {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: var(--obsidian);
+            border: 2px solid var(--jade);
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .sign-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(72, 169, 166, 0.3);
+            border-color: var(--gold);
+        }
+
+        .sign-card img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-sm);
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .sign-card h4 {
+            color: var(--gold);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .sign-card .spanish {
+            color: var(--jade);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .sign-card .meaning {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* === COMPONENT CARDS === */
+        .component-card {
+            background: var(--obsidian);
+            border: 2px solid var(--terracotta);
+            padding: var(--spacing-md);
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .component-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: var(--spacing-sm);
+            border-radius: 4px;
+        }
+
+        .component-card h4 {
+            color: var(--gold);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* === MODAL === */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
+        }
+
+        .modal-content {
+            background: var(--obsidian-light);
+            padding: var(--spacing-xl);
+            max-width: 900px;
+            width: 100%;
+            border: 3px solid var(--gold);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 4px;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            background: var(--terracotta);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .modal-close:hover {
+            background: var(--gold);
+            transform: rotate(90deg);
+        }
+
+        .modal-images {
+            display: grid;
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .modal-images img {
+            width: 100%;
+            border: 2px solid var(--jade);
+            border-radius: 4px;
+        }
+
+        .modal h2 {
+            color: var(--gold);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .modal h3 {
+            color: var(--jade);
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .modal p, .modal ul {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+        }
+
+        .modal ul {
+            padding-left: var(--spacing-lg);
+        }
+
+        .modal li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* === TABLE === */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-lg) 0;
+        }
+
+        th, td {
+            padding: var(--spacing-sm);
+            border: 1px solid var(--gray);
+            text-align: left;
+        }
+
+        th {
+            background: var(--obsidian);
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: var(--obsidian);
+        }
+
+        /* === INFO BOXES === */
+        .info-box {
+            background: var(--obsidian);
+            border-left: 4px solid var(--jade);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .info-box.warning {
+            border-left-color: var(--terracotta);
+        }
+
+        .info-box h4 {
+            color: var(--gold);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* === TLAPIANI GRID === */
+        .tlapiani-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .tlapiani-card {
+            background: var(--obsidian);
+            border: 2px solid var(--gold);
+            padding: var(--spacing-md);
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .tlapiani-card.rojo { border-color: var(--rojo); }
+        .tlapiani-card.azul { border-color: var(--azul); }
+        .tlapiani-card.negro { border-color: var(--negro); }
+        .tlapiani-card.blanco { border-color: var(--blanco); }
+
+        .tlapiani-card h4 {
+            color: var(--gold);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .tlapiani-card .nahuatl {
+            color: var(--jade);
+            font-style: italic;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .tlapiani-card .domain {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: var(--spacing-sm);
+            }
+
+            section {
+                padding: var(--spacing-md);
+            }
+
+            .modal-content {
+                padding: var(--spacing-md);
+            }
+
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1400px;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* === UTILITY === */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-lg {
+            margin-top: var(--spacing-lg);
+        }
+
+        .mb-lg {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* === CARD ANATOMY === */
+        .anatomy-diagram {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: start;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .anatomy-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .anatomy-list li {
+            padding: var(--spacing-sm);
+            background: var(--obsidian);
+            margin-bottom: var(--spacing-sm);
+            border-left: 3px solid var(--jade);
+        }
+
+        @media (max-width: 768px) {
+            .anatomy-diagram {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* === COMING SOON === */
+        .coming-soon {
+            text-align: center;
+            padding: var(--spacing-xl);
+            background: linear-gradient(135deg, var(--obsidian) 0%, #2a1a3e 100%);
+            border: 2px solid var(--terracotta);
+        }
+
+        .coming-soon h2 {
+            color: var(--terracotta);
+            font-size: 2.5rem;
+        }
+
+        .coming-soon .teaser {
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin: var(--spacing-lg) 0;
+        }
+
+        /* === LORDS GRID === */
+        .lords-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+        }
+
+        .lord-card {
+            background: var(--obsidian);
+            border: 2px solid var(--terracotta);
+            padding: var(--spacing-sm);
+            text-align: center;
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+
+        .lord-card h5 {
+            color: var(--gold);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .lord-card .nahuatl {
+            color: var(--terracotta);
+            font-style: italic;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* === SCROLLBAR === */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--obsidian);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--jade);
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO / LANDING -->
+    <section class="hero">
+        <h1>Amapatolli Companion</h1>
+        <p class="subtitle">Colección Tonalli — Estudio Tochcalli</p>
+        <div class="intro">
+            <p><strong>Amapatolli</strong> no es un solo juego — es un <em>sistema de juegos</em> que usa el mismo mazo de cartas (y opcionalmente el tablero Huapalli y fichas Tetl) para múltiples modos de juego con mecánicas distintas.</p>
+            <p>La baraja se basa en la iconografía mesoamericana, los 20 signos del <em>tonalpohualli</em> (calendario ritual de 260 días) y los 4 rumbos cósmicos del universo náhuatl.</p>
+        </div>
+        <div class="nav-grid">
+            <a href="#juegos" class="nav-button">Juegos (11)</a>
+            <a href="#baraja" class="nav-button">Baraja</a>
+            <a href="#signos" class="nav-button">Signos del Tonalpohualli</a>
+            <a href="#componentes" class="nav-button">Componentes</a>
+            <a href="#historia" class="nav-button">Historia & Cultura</a>
+            <a href="#expansion" class="nav-button">Expansión Yohualli</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- SECTION 1: JUEGOS -->
+        <section id="juegos">
+            <h2>Los 11 Juegos de Amapatolli</h2>
+            <p class="text-center mb-lg">Cada juego utiliza las mismas cartas de formas diferentes: velocidad, estrategia, memoria, cooperación y más.</p>
+
+            <div class="game-grid">
+                <!-- Game 1: CE -->
+                <div class="game-card" data-game="ce">
+                    <h3>Ce <span style="font-size: 0.8em;">("Uno")</span></h3>
+                    <p class="game-type">Cartas · Velocidad/Descarte</p>
+                    <p>Empareja por color de margen o fondo. ¡Grita "Ce Amapatolli" cuando te quede una carta!</p>
+                    <div class="game-info">
+                        <span>👥 2-6 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
+
+                <!-- Game 2: IXTLI -->
+                <div class="game-card" data-game="ixtli">
+                    <h3>Ixtli <span style="font-size: 0.8em;">("Ojo/Rostro")</span></h3>
+                    <p class="game-type">Tablero + Cartas · Observación/Velocidad</p>
+                    <p>Encuentra la ilustración en tu tablero. ¡Grita "Ixtli" al encontrarla!</p>
+                    <div class="game-info">
+                        <span>👥 2-4 jugadores</span>
+                        <span>🎴 Baraja + tablero + fichas</span>
+                    </div>
+                </div>
+
+                <!-- Game 3: PAMITL -->
+                <div class="game-card" data-game="pamitl">
+                    <h3>Pamitl <span style="font-size: 0.8em;">("Bandera/Fila")</span></h3>
+                    <p class="game-type">Tablero + Fichas · Estrategia abstracta</p>
+                    <p>Conecta 5 fichas en fila en cualquier dirección para ganar.</p>
+                    <div class="game-info">
+                        <span>👥 2 jugadores</span>
+                        <span>🎲 Tablero + fichas</span>
+                    </div>
+                </div>
+
+                <!-- Game 4: PINOTL -->
+                <div class="game-card" data-game="pinotl">
+                    <h3>Pinotl <span style="font-size: 0.8em;">("Pila/Montón")</span></h3>
+                    <p class="game-type">Cartas · Emparejamiento</p>
+                    <p>Termina tus cartas antes que los demás una vez agotado el mazo.</p>
+                    <div class="game-info">
+                        <span>👥 2-6 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
+
+                <!-- Game 5: TECUIA -->
+                <div class="game-card" data-game="tecuia">
+                    <h3>Tecuia <span style="font-size: 0.8em;">("Golpear")</span></h3>
+                    <p class="game-type">Cartas · Secuencia/Posicionamiento</p>
+                    <p>Coloca 5 cartas consecutivas de tu color en cualquier dirección.</p>
+                    <div class="game-info">
+                        <span>👥 2-4 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
+
+                <!-- Game 6: ATOYATL -->
+                <div class="game-card" data-game="atoyatl">
+                    <h3>Atoyatl <span style="font-size: 0.8em;">("Río")</span></h3>
+                    <p class="game-type">Cartas · Descarte por valor</p>
+                    <p>Coloca la última carta boca abajo para ganar. Los valores numéricos determinan jugadas válidas.</p>
+                    <div class="game-info">
+                        <span>👥 2-4 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
+
+                <!-- Game 7: CAYAHUA -->
+                <div class="game-card" data-game="cayahua">
+                    <h3>Cayahua <span style="font-size: 0.8em;">("Dejar caer")</span></h3>
+                    <p class="game-type">Tablero + Fichas · Estrategia abstracta</p>
+                    <p>Deja a tu rival sin ningún Tetl en formación de diamante.</p>
+                    <div class="game-info">
+                        <span>👥 2 jugadores</span>
+                        <span>🎲 Tablero + fichas</span>
+                    </div>
+                </div>
+
+                <!-- Game 8: TLALPOLOA -->
+                <div class="game-card" data-game="tlalpoloa">
+                    <h3>Tlalpoloa <span style="font-size: 0.8em;">("Devorar la tierra")</span></h3>
+                    <p class="game-type">Tablero + Fichas · Colocación</p>
+                    <p>Coloca todas tus fichas en el tablero con formación de diamante.</p>
+                    <div class="game-info">
+                        <span>👥 2 jugadores</span>
+                        <span>🎲 Tablero + fichas</span>
+                    </div>
+                </div>
+
+                <!-- Game 9: CEMPOHUALLI -->
+                <div class="game-card" data-game="cempohualli">
+                    <h3>Cempohualli <span style="font-size: 0.8em;">("Veinte")</span></h3>
+                    <p class="game-type">Cartas · Supervivencia</p>
+                    <p>Cada carta es una vida. ¡El último jugador en pie gana!</p>
+                    <div class="game-info">
+                        <span>👥 2-6 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
+
+                <!-- Game 10: PALEHUIA -->
+                <div class="game-card" data-game="palehuia">
+                    <h3>Palehuia <span style="font-size: 0.8em;">("Ayudar")</span></h3>
+                    <p class="game-type">Cartas · Cooperativo</p>
+                    <p>Juego cooperativo: completa 4 pilas del 1 al 5. ¡Trabajen juntos para no perder!</p>
+                    <div class="game-info">
+                        <span>👥 2-4 jugadores</span>
+                        <span>🎴 Baraja + fichas</span>
+                    </div>
+                </div>
+
+                <!-- Game 11: TLAPATLANI -->
+                <div class="game-card" data-game="tlapatlani">
+                    <h3>Tlapatlani <span style="font-size: 0.8em;">("Intercambiar")</span></h3>
+                    <p class="game-type">Cartas · Colección</p>
+                    <p>Completa primero tus 4 pilas organizadas por tipo de ilustración.</p>
+                    <div class="game-info">
+                        <span>👥 2-4 jugadores</span>
+                        <span>🎴 Solo baraja</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: BARAJA -->
+        <section id="baraja">
+            <h2>La Baraja Amapatolli</h2>
+            <p class="text-center">84 cartas divididas en 4 colores correspondientes a los rumbos cósmicos mesoamericanos.</p>
+
+            <h3 class="mt-lg">Anatomía de las Cartas</h3>
+            <div class="anatomy-diagram">
+                <div>
+                    <ul class="anatomy-list">
+                        <li><strong>Color de margen</strong> (borde exterior): rojo, azul, negro o blanco</li>
+                        <li><strong>Color de fondo</strong> (interior): puede coincidir o diferir del margen</li>
+                        <li><strong>Ilustración central</strong>: iconos de los 20 signos del tonalpohualli</li>
+                        <li><strong>Numerales</strong>: puntos estilo mesoamericano (1-5+) en la parte superior</li>
+                        <li><strong>Cartas especiales</strong>: Pájaros (aves) y Tlapiani (comodines con deidades)</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <h4>Reversos de Cartas</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <img src="./reversos/Rojo Reverso.jpg" alt="Reverso Rojo" style="max-width: 100px; margin: 0 auto;">
+                        <img src="./reversos/Azul Reverso.jpg" alt="Reverso Azul" style="max-width: 100px; margin: 0 auto;">
+                        <img src="./reversos/Negro Reverso.jpg" alt="Reverso Negro" style="max-width: 100px; margin: 0 auto;">
+                        <img src="./reversos/Blanco Reverso.jpg" alt="Reverso Blanco" style="max-width: 100px; margin: 0 auto;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box mt-lg">
+                <h4>Cartas Especiales</h4>
+                <p><strong>Tlapiani (Comodines):</strong> 4 cartas con ilustraciones de deidades. Funcionan como comodines en modos de emparejamiento.</p>
+                <p><strong>Pájaros:</strong> Cartas con ilustración de ave. Efecto especial de "saltar turno" o acción sobre siguiente jugador.</p>
+            </div>
+
+            <h3 class="mt-lg">Galería de Cartas</h3>
+            <div class="filters">
+                <button class="filter-btn active" data-color="all">Todas</button>
+                <button class="filter-btn rojo" data-color="rojo">Rojo (21)</button>
+                <button class="filter-btn azul" data-color="azul">Azul (21)</button>
+                <button class="filter-btn negro" data-color="negro">Negro (21)</button>
+                <button class="filter-btn blanco" data-color="blanco">Blanco (21)</button>
+            </div>
+
+            <div class="card-grid" id="cardGallery">
+                <!-- Cards will be generated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- SECTION 3: SIGNOS DEL TONALPOHUALLI -->
+        <section id="signos">
+            <h2>Los 20 Signos del Tonalpohualli</h2>
+            <p class="text-center">El <em>tonalpohualli</em> es el calendario ritual mesoamericano de 260 días, compuesto por 20 signos combinados con 13 numerales.</p>
+
+            <div class="sign-grid mt-lg">
+                <div class="sign-card">
+                    <img src="./ilhuitl/Cipactli.png" alt="Cipactli">
+                    <h4>Cipactli</h4>
+                    <p class="spanish">Cocodrilo / Lagarto</p>
+                    <p class="meaning">Creación, origen, base</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Ehecatl.png" alt="Ehecatl">
+                    <h4>Ehecatl</h4>
+                    <p class="spanish">Viento</p>
+                    <p class="meaning">Movimiento, cambio, aliento</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Cali.png" alt="Cali">
+                    <h4>Cali</h4>
+                    <p class="spanish">Casa</p>
+                    <p class="meaning">Hogar, refugio, interior</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Cuetzpallin.png" alt="Cuetzpallin">
+                    <h4>Cuetzpallin</h4>
+                    <p class="spanish">Lagartija</p>
+                    <p class="meaning">Agilidad, adaptación</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Coatl.png" alt="Coatl">
+                    <h4>Coatl</h4>
+                    <p class="spanish">Serpiente</p>
+                    <p class="meaning">Sabiduría, transformación</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Miquiztli.png" alt="Miquiztli">
+                    <h4>Miquiztli</h4>
+                    <p class="spanish">Muerte</p>
+                    <p class="meaning">Tránsito, fin, renovación</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Mazatl.png" alt="Mazatl">
+                    <h4>Mazatl</h4>
+                    <p class="spanish">Venado</p>
+                    <p class="meaning">Gracia, velocidad, caza</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Tochtli.png" alt="Tochtli">
+                    <h4>Tochtli</h4>
+                    <p class="spanish">Conejo</p>
+                    <p class="meaning">Fertilidad, abundancia</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Atl.png" alt="Atl">
+                    <h4>Atl</h4>
+                    <p class="spanish">Agua</p>
+                    <p class="meaning">Fluidez, vida, purificación</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Itzcuintli.png" alt="Itzcuintli">
+                    <h4>Itzcuintli</h4>
+                    <p class="spanish">Perro</p>
+                    <p class="meaning">Guía, lealtad, compañía</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Ozomatli.png" alt="Ozomatli">
+                    <h4>Ozomatli</h4>
+                    <p class="spanish">Mono</p>
+                    <p class="meaning">Juego, arte, creatividad</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Malinalli.png" alt="Malinalli">
+                    <h4>Malinalli</h4>
+                    <p class="spanish">Hierba torcida</p>
+                    <p class="meaning">Resistencia, flexibilidad</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Acatl.png" alt="Acatl">
+                    <h4>Acatl</h4>
+                    <p class="spanish">Caña</p>
+                    <p class="meaning">Dirección, autoridad</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Ocelotl.png" alt="Ocelotl">
+                    <h4>Ocelotl</h4>
+                    <p class="spanish">Jaguar</p>
+                    <p class="meaning">Fuerza, valor, noche</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Cuautli.png" alt="Cuautli">
+                    <h4>Cuautli</h4>
+                    <p class="spanish">Águila</p>
+                    <p class="meaning">Visión, poder, sol</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Cozcacuautli.png" alt="Cozcacuautli">
+                    <h4>Cozcacuautli</h4>
+                    <p class="spanish">Zopilote</p>
+                    <p class="meaning">Purificación, longevidad</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Ollin.png" alt="Ollin">
+                    <h4>Ollin</h4>
+                    <p class="spanish">Movimiento</p>
+                    <p class="meaning">Cambio, terremoto, era</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Tepactl.png" alt="Tepactl">
+                    <h4>Tepactl</h4>
+                    <p class="spanish">Pedernal</p>
+                    <p class="meaning">Corte, separación, filo</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Quiahuitl.png" alt="Quiahuitl">
+                    <h4>Quiahuitl</h4>
+                    <p class="spanish">Lluvia</p>
+                    <p class="meaning">Tormenta, renovación</p>
+                </div>
+
+                <div class="sign-card">
+                    <img src="./ilhuitl/Xochitl.png" alt="Xochitl">
+                    <h4>Xochitl</h4>
+                    <p class="spanish">Flor</p>
+                    <p class="meaning">Belleza, arte, placer</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: COMPONENTES -->
+        <section id="componentes">
+            <h2>Componentes del Sistema</h2>
+            <p class="text-center">Amapatolli utiliza diferentes combinaciones de componentes según el juego elegido.</p>
+
+            <div class="component-grid mt-lg">
+                <div class="component-card">
+                    <h4>Baraja Amapatolli</h4>
+                    <img src="./cards/rojo/rojo1.png" alt="Carta de ejemplo" style="max-width: 150px;">
+                    <p>84 cartas: 21 de cada color (rojo, azul, negro, blanco)</p>
+                </div>
+
+                <div class="component-card">
+                    <h4>Tableros Huapalli</h4>
+                    <img src="./boards/Tableros Rojo.jpg" alt="Tablero Rojo">
+                    <p>Grilla 5×5 con casillas de colores. 4 tableros disponibles (uno por color).</p>
+                </div>
+
+                <div class="component-card">
+                    <h4>Tetl (Fichas)</h4>
+                    <div style="display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1rem;">
+                        <img src="./tetl/Tetl rojo.png" alt="Tetl Rojo" style="max-width: 50px;">
+                        <img src="./tetl/Tetl azul.png" alt="Tetl Azul" style="max-width: 50px;">
+                        <img src="./tetl/Tetl negro.png" alt="Tetl Negro" style="max-width: 50px;">
+                        <img src="./tetl/Tetl blanco.png" alt="Tetl Blanco" style="max-width: 50px;">
+                    </div>
+                    <p>Piezas de colores para marcar posiciones en el tablero.</p>
+                </div>
+            </div>
+
+            <h3 class="mt-lg">¿Qué Juegos Usan Qué Componentes?</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Componente</th>
+                        <th>Juegos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Solo baraja</strong></td>
+                        <td>Ce, Pinotl, Tecuia, Atoyatl, Cempohualli, Tlapatlani</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Baraja + tablero + fichas</strong></td>
+                        <td>Ixtli, Palehuia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Solo tablero + fichas</strong></td>
+                        <td>Pamitl, Cayahua, Tlalpoloa</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECTION 5: HISTORIA & CULTURA -->
+        <section id="historia">
+            <h2>Historia & Significado Cultural</h2>
+
+            <h3>Acerca de Estudio Tochcalli</h3>
+            <p>Estudio Tochcalli es un proyecto dedicado a la creación de contenido cultural, educativo y lúdico inspirado en las tradiciones mesoamericanas. La <em>Colección Tonalli</em> busca conectar el juego moderno con la rica simbología y cosmovisión de las culturas náhuatl.</p>
+            <p>Más información: <a href="https://estudiotochcalli.mx" target="_blank" style="color: var(--jade);">estudiotochcalli.mx</a></p>
+
+            <h3 class="mt-lg">Los 4 Rumbos Cósmicos</h3>
+            <p>Los cuatro colores de la baraja corresponden a los 4 rumbos del universo mesoamericano según el Tonalamatl de los Pochtecas:</p>
+
+            <div class="component-grid mt-lg">
+                <div class="component-card" style="border-color: var(--rojo);">
+                    <h4 style="color: var(--rojo);">Rojo — Oriente</h4>
+                    <p><em>Tlatlauhqui</em></p>
+                    <p>El rumbo del sol naciente, el inicio, la renovación.</p>
+                </div>
+
+                <div class="component-card" style="border-color: var(--azul);">
+                    <h4 style="color: var(--azul);">Azul — Norte</h4>
+                    <p><em>Texotli</em></p>
+                    <p>El rumbo de la oscuridad, el frío, la reflexión.</p>
+                </div>
+
+                <div class="component-card" style="border-color: var(--negro);">
+                    <h4>Negro — Poniente</h4>
+                    <p><em>Tliltic</em></p>
+                    <p>El rumbo del ocaso, la transformación, el misterio.</p>
+                </div>
+
+                <div class="component-card" style="border-color: var(--blanco);">
+                    <h4>Blanco — Sur</h4>
+                    <p><em>Iztac</em></p>
+                    <p>El rumbo de la luz, el calor, la vitalidad.</p>
+                </div>
+            </div>
+
+            <h3 class="mt-lg">Las 4 Tlapiani: Señores de la Noche</h3>
+            <p>Los cuatro comodines representan a 4 de los 9 Señores de la Noche (<em>Yohualteteuctin</em>) del panteón mesoamericano:</p>
+
+            <div class="tlapiani-grid">
+                <div class="tlapiani-card blanco">
+                    <h4>Itztli</h4>
+                    <p class="nahuatl">"Cuchillo de Pedernal"</p>
+                    <p class="domain">Color: Blanco (iztac)</p>
+                    <p class="domain">Dominio: Sacrificio, justicia</p>
+                </div>
+
+                <div class="tlapiani-card negro">
+                    <h4>Tláloc</h4>
+                    <p class="nahuatl">"Dios de la lluvia"</p>
+                    <p class="domain">Color: Negro (tliltic)</p>
+                    <p class="domain">Dominio: Lluvia, fertilidad, agua celeste</p>
+                </div>
+
+                <div class="tlapiani-card rojo">
+                    <h4>Tlazoltéotl</h4>
+                    <p class="nahuatl">"Diosa de las inmundicias"</p>
+                    <p class="domain">Color: Rojo (tlatlauhqui)</p>
+                    <p class="domain">Dominio: Purificación, placer, confesión</p>
+                </div>
+
+                <div class="tlapiani-card azul">
+                    <h4>Mictlantecuhtli</h4>
+                    <p class="nahuatl">"Dios de la muerte"</p>
+                    <p class="domain">Color: Azul (texotli)</p>
+                    <p class="domain">Dominio: Muerte, inframundo, tránsito</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: EXPANSIÓN YOHUALLI -->
+        <section id="expansion" class="coming-soon">
+            <h2>Expansión Yohualli</h2>
+            <p class="teaser">La noche se acerca...</p>
+            <p>La expansión <em>Yohualli</em> ("Noche") traerá un nuevo palo de 21 cartas con temática nocturna, completando los 9 Señores de la Noche.</p>
+
+            <h3 style="color: var(--gold); margin-top: var(--spacing-lg);">Los 5 Señores Restantes</h3>
+            <div class="lords-grid">
+                <div class="lord-card">
+                    <h5>5. Xiuhtecuhtli</h5>
+                    <span class="nahuatl">"Señor del fuego"</span>
+                    <p>Fuego, centro cósmico, transformación</p>
+                </div>
+
+                <div class="lord-card">
+                    <h5>6. Tonatiuh-Piltzintecuhtli</h5>
+                    <span class="nahuatl">"Sol joven"</span>
+                    <p>Sol, luz, ciclos, tiempo</p>
+                </div>
+
+                <div class="lord-card">
+                    <h5>7. Chalchiuhtlicue</h5>
+                    <span class="nahuatl">"La de la falda de jade"</span>
+                    <p>Agua terrestre, jade, fertilidad</p>
+                </div>
+
+                <div class="lord-card">
+                    <h5>8. Cintéotl</h5>
+                    <span class="nahuatl">"Dios del maíz"</span>
+                    <p>Sustento, crecimiento, maíz</p>
+                </div>
+
+                <div class="lord-card">
+                    <h5>9. Tepeyóllotl</h5>
+                    <span class="nahuatl">"Corazón del monte"</span>
+                    <p>Eco, cavernas, jaguar, interior de la tierra</p>
+                </div>
+            </div>
+
+            <div class="info-box mt-lg">
+                <h4>Contenido Propuesto</h4>
+                <p>• 21 cartas nocturnas: 7 Señores + 7 Encrucijadas + 7 Ofrendas</p>
+                <p>• Compatibilidad con todos los juegos existentes</p>
+                <p>• Nuevos efectos especiales y mecánicas</p>
+                <p>• Posible 5to color de fichas (púrpura/morado para "noche")</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODALS -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="gameModalContent"></div>
+        </div>
+    </div>
+
+    <div id="cardModal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <button class="modal-close">&times;</button>
+            <img id="cardModalImage" src="" alt="Card" style="width: 100%; border-radius: 4px;">
+        </div>
+    </div>
+
+    <script>
+        // Game data with detailed information
+        const games = {
+            ce: {
+                name: "Ce",
+                translation: "Uno",
+                type: "Cartas · Velocidad/Descarte",
+                players: "2-6 jugadores",
+                components: "Solo baraja",
+                preparacion: "Preparación Ce@4x.png",
+                jugadas: "Jugadas Ce@4x.png",
+                objetivo: "Objetivo Ce@4x.png",
+                rules: `
+                    <h3>Preparación</h3>
+                    <p>Reparte 7 cartas a cada jugador. Baraja el resto y déjalo al centro. Destapa la primera carta.</p>
+
+                    <h3>Jugadas — Condiciones de Emparejamiento</h3>
+                    <ul>
+                        <li><strong>Mismo color de margen</strong> → juega 1 carta</li>
+                        <li><strong>Mismo color de fondo</strong> → juega 1 carta</li>
+                        <li><strong>Mismos colores (margen Y fondo)</strong> → juega 2 cartas</li>
+                        <li><strong>Margen y fondo invertidos</strong> → juega 2 cartas</li>
+                        <li><strong>Pájaros</strong> → saltan al siguiente jugador</li>
+                        <li><strong>Tlapiani</strong> → son comodines (juegan sobre cualquier carta)</li>
+                    </ul>
+
+                    <h3>Objetivo</h3>
+                    <p>Gana el primer jugador en jugar todas las cartas de su mano. <strong>¡Gritar "Ce Amapatolli" cuando solo quede una carta!</strong> Si no lo haces, come 3 cartas.</p>
+
+                    <div class="info-box">
+                        <h4>Analogía</h4>
+                        <p>Similar a UNO pero con sistema de doble color (margen + fondo)</p>
+                    </div>
+                `
+            },
+            ixtli: {
+                name: "Ixtli",
+                translation: "Ojo/Rostro",
+                type: "Tablero + Cartas · Observación/Velocidad",
+                players: "2-4 jugadores",
+                components: "Baraja + tableros Huapalli + fichas Tetl",
+                preparacion: "Preparación Ixtli@4x.png",
+                jugadas: "Jugadas Ixtli@4x.png",
+                objetivo: "Objetivo Ixtli@4x.png",
+                rules: `
+                    <h3>Preparación</h3>
+                    <p>Reparte un tablero y 7 fichas a cada jugador. Coloca el mazo al centro. Otorga el mazo al cantor de cartas.</p>
+
+                    <h3>Jugadas</h3>
+                    <p>El cantor destapa una carta. Los jugadores buscan la ilustración en su tablero. <strong>Gritar "Ixtli" al encontrarlo.</strong> El primer jugador en encontrarlo coloca su ficha.</p>
+
+                    <h3>Objetivo</h3>
+                    <p>El primero en colocar 7 fichas en su tablero gana.</p>
+
+                    <div class="info-box">
+                        <h4>Analogía</h4>
+                        <p>Lotería mexicana con mecánica de velocidad</p>
+                    </div>
+                `
+            },
+            pamitl: {
+                name: "Pamitl",
+                translation: "Bandera/Fila",
+                type: "Tablero + Fichas · Estrategia abstracta",
+                players: "2 jugadores",
+                components: "Tablero Huapalli + fichas Tetl",
+                preparacion: "PreparaciónPamitl@4x.png",
+                jugadas: "Jugadas Pamitl@4x.png",
+                objetivo: "Objetivo Pamitl@4x.png",
+                rules: `
+                    <h3>Objetivo</h3>
+                    <p>5 fichas en fila, en cualquier dirección, hacen un <em>Pamitl</em>. Gana quien lo logre primero.</p>
+
+                    <h3>Jugadas</h3>
+                    <p>Los jugadores se turnan para colocar fichas en el tablero 5×5. Las líneas pueden ser horizontales, verticales o diagonales.</p>
+
+                    <div class="info-box">
+                        <h4>Analogía</h4>
+                        <p>Similar a Conecta 4/Gobang en tablero mesoamericano</p>
+                    </div>
+                `
+            },
+            pinotl: {
+                name: "Pinotl",
+                translation: "Pila/Montón",
+                type: "Cartas · Emparejamiento",
+                players: "2-6 jugadores",
+                components: "Solo baraja",
+                preparacion: "Preparación Pinotl@4x.png",
+                jugadas: "Jugadas Pinotl@4x.png",
+                objetivo: "Objetivo Pinotl@4x.png",
+                rules: `
+                    <h3>Objetivo</h3>
+                    <p>Gana el primer jugador en terminar con todas las cartas de su mano una vez que se ha terminado el mazo.</p>
+
+                    <h3>Jugadas</h3>
+                    <p>Los jugadores emparejan cartas por atributos específicos (color, ilustración, valor) para descartar de su mano.</p>
+                `
+            },
+            tecuia: {
+                name: "Tecuia",
+                translation: "Golpear",
+                type: "Cartas · Secuencia/Posicionamiento",
+                players: "2-4 jugadores",
+                components: "Solo baraja (cartas con numerales)",
+                preparacion: "Preparación Tecuia@4x.png",
+                jugadas: "Jugadas Tecuia@4x.png",
+                objetivo: "Objetivo Tecuia@4x.png",
+                rules: `
+                    <h3>Objetivo</h3>
+                    <p>Gana colocando 5 cartas consecutivas de tu color en cualquier dirección.</p>
+
+                    <h3>Jugadas</h3>
+                    <p>Las cartas tienen puntos (numerales mesoamericanos) que determinan el orden. Coloca tus cartas en secuencia para formar líneas consecutivas.</p>
+                `
+            },
+            atoyatl: {
+                name: "Atoyatl",
+                translation: "Río",
+                type: "Cartas · Descarte por valor",
+                players: "2-4 jugadores",
+                components: "Solo baraja (cartas numeradas)",
+                preparacion: "Preparación Atoyatl@4x.png",
+                jugadas: "Jugadas Atoyatl@4x.png",
+                objetivo: "Objetivo Atoyatl@4x.png",
+                rules: `
+                    <h3>Objetivo</h3>
+                    <p>Gana el primer jugador en colocar la última de sus cartas boca abajo.</p>
+
+                    <h3>Jugadas</h3>
+                    <p>Las cartas muestran valores numéricos (ej: 18, 10) que determinan las jugadas válidas. Los jugadores deben descartar cartas siguiendo las reglas de valor.</p>
+                `
+            },
+            cayahua: {
+                name: "Cayahua",
+                translation: "Dejar caer/Esparcir",
+                type: "Tablero + Fichas · Estrategia abstracta",
+                players: "2 jugadores",
+                components: "Tablero Huapalli + fichas Tetl",
+                preparacion: "Preparación Cayahua@4x.png",
+                jugadas: "Jugadas Cayahua@4x.png",
+                objetivo: "Objetivo Cayahua@4x.png",
+                rules: `
+                    <h3>Objetivo</h3>
+                    <p>Gana el jugador que deja a su rival sin ningún Tetl.</p>
+
+                    <h3>Jugadas</h3>
+                    <p>El tablero se dispone en formación de diamante. Los jugadores se turnan para mover y capturar fichas del oponente.</p>
+                `
+            },
+            tlalpoloa: {
+                name: "Tlalpoloa",
+                translation: "Devorar la tierra",
+                type: "Tablero + Fichas · Colocación",
+                players: "2 jugadores",
+                components: "Tablero Huapalli + fichas Tetl",
+                preparacion: "Preparación Tlalpoloa@4x.png",
+                jugadas: "Jugadas Tlalpoloa@4x.png",
+                objetivo: "Objetivo Tlalpoloa@4x.png",
+                rules: `
+                    <h3>Objetivo</h3>
+                    <p>Coloca todas tus fichas en el tablero (formación de diamante).</p>
+
+                    <h3>Jugadas</h3>
+                    <p>Los jugadores se turnan para colocar fichas en el tablero, ocupando territorio de forma estratégica.</p>
+                `
+            },
+            cempohualli: {
+                name: "Cempohualli",
+                translation: "Veinte",
+                type: "Cartas · Supervivencia",
+                players: "2-6 jugadores",
+                components: "Solo baraja",
+                preparacion: "Preparación Cempohualli@4x.png",
+                jugadas: "Jugadas Cempohualli@4x.png",
+                objetivo: "Objetivo Cempohualli@4x.png",
+                rules: `
+                    <h3>Objetivo</h3>
+                    <p>Cada carta es una vida. Al perder tus tres cartas pierdes el juego. <strong>¡El último jugador en pie es el ganador!</strong></p>
+
+                    <div class="info-box">
+                        <h4>Analogía</h4>
+                        <p>Juego de eliminación</p>
+                    </div>
+                `
+            },
+            palehuia: {
+                name: "Palehuia",
+                translation: "Ayudar",
+                type: "Cartas · Cooperativo",
+                players: "2-4 jugadores",
+                components: "Baraja + fichas Tetl",
+                preparacion: "Preparación Palehuia@4x.png",
+                jugadas: "Jugadas Palehuia@4x.png",
+                objetivo: "Objetivo Palehuia@4x.png",
+                rules: `
+                    <h3>Objetivo</h3>
+                    <p>Completar 4 pilas (1 por color) del 1 al 5. Cuando una pila llega al 5, se retira del centro.</p>
+
+                    <h3>Condiciones de Derrota</h3>
+                    <ul>
+                        <li>Se queman 3 pilas (máximo 6 pilas al centro)</li>
+                        <li>Se agotan los Tetl del color necesario</li>
+                        <li>El mazo se agota antes de completar 4 pilas</li>
+                    </ul>
+
+                    <div class="info-box warning">
+                        <h4>¡Juego Cooperativo!</h4>
+                        <p>Este es el único modo cooperativo documentado. Todos los jugadores trabajan juntos contra el juego.</p>
+                    </div>
+                `
+            },
+            tlapatlani: {
+                name: "Tlapatlani",
+                translation: "Intercambiar",
+                type: "Cartas · Colección por categorías",
+                players: "2-4 jugadores",
+                components: "Solo baraja",
+                preparacion: "Preparación Tlapatlani@4x.png",
+                jugadas: "Jugadas Tlapatlani@4x.png",
+                objetivo: "Objetivo Tlapatlani@4x.png",
+                rules: `
+                    <h3>Objetivo</h3>
+                    <p>Gana quien complete primero sus 4 pilas (colecciones organizadas por tipo de ilustración: aves, templos, árboles, figuras).</p>
+
+                    <h3>Jugadas</h3>
+                    <p>Los jugadores intercambian cartas para completar colecciones basadas en el tipo de ilustración de cada carta.</p>
+                `
+            }
+        };
+
+        // Generate card gallery
+        function generateCardGallery() {
+            const gallery = document.getElementById('cardGallery');
+            const colors = ['rojo', 'azul', 'negro', 'blanco'];
+
+            colors.forEach(color => {
+                for (let i = 1; i <= 21; i++) {
+                    const card = document.createElement('div');
+                    card.className = `card-item ${color}`;
+                    card.innerHTML = `<img src="./cards/${color}/${color}${i}.png" alt="${color} ${i}" loading="lazy">`;
+                    card.addEventListener('click', () => openCardModal(`./cards/${color}/${color}${i}.png`));
+                    gallery.appendChild(card);
+                }
+            });
+        }
+
+        // Filter cards
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const color = btn.dataset.color;
+                const cards = document.querySelectorAll('.card-item');
+
+                cards.forEach(card => {
+                    if (color === 'all' || card.classList.contains(color)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Open game modal
+        document.querySelectorAll('.game-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const gameId = card.dataset.game;
+                const game = games[gameId];
+                const modal = document.getElementById('gameModal');
+                const content = document.getElementById('gameModalContent');
+
+                content.innerHTML = `
+                    <h2>${game.name} <span style="font-size: 0.7em; color: var(--jade);">("${game.translation}")</span></h2>
+                    <p style="color: var(--terracotta); font-size: 1.1rem; margin-bottom: 1rem;">${game.type}</p>
+                    <div class="game-info" style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                        <span style="background: var(--obsidian); padding: 0.5rem 1rem; border-radius: 4px;">👥 ${game.players}</span>
+                        <span style="background: var(--obsidian); padding: 0.5rem 1rem; border-radius: 4px;">🎴 ${game.components}</span>
+                    </div>
+
+                    <div class="modal-images">
+                        <div>
+                            <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Preparación</h4>
+                            <img src="./instructions/${game.preparacion}" alt="Preparación ${game.name}">
+                        </div>
+                        <div>
+                            <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Jugadas</h4>
+                            <img src="./instructions/${game.jugadas}" alt="Jugadas ${game.name}">
+                        </div>
+                        <div>
+                            <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Objetivo</h4>
+                            <img src="./instructions/${game.objetivo}" alt="Objetivo ${game.name}">
+                        </div>
+                    </div>
+
+                    ${game.rules}
+                `;
+
+                modal.classList.add('active');
+            });
+        });
+
+        // Open card modal
+        function openCardModal(imageSrc) {
+            const modal = document.getElementById('cardModal');
+            const img = document.getElementById('cardModalImage');
+            img.src = imageSrc;
+            modal.classList.add('active');
+        }
+
+        // Close modals
+        document.querySelectorAll('.modal-close').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.modal').classList.remove('active');
+            });
+        });
+
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            generateCardGallery();
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

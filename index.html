@@ -28,7 +28,7 @@
             --terracotta: #c1666b;
             --jade: #48a9a6;
             --white: #f5f5f5;
-            --gray: #b0b0b0;
+            --gray: #c0c0c0;
 
             /* Card colors */
             --rojo: #c1666b;
@@ -64,7 +64,8 @@
 
         html[data-theme="light"] .card-item,
         html[data-theme="light"] .game-card-thumb {
-            background: #2a2a2e;
+            background: #e8e4dc;
+            border-color: #c4934f;
         }
 
         body {
@@ -76,7 +77,9 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        * {
+        body, section, .game-card, .nav-button, .filter-btn, .sign-card, .component-card,
+        .modal-content, .score-tracker-panel, .strategy-card, .example-play, .glossary-item,
+        .info-box, .tlapiani-card, .lord-card, h1, h2, h3, h4, p, a, th, td, footer {
             transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
         }
 
@@ -90,11 +93,12 @@
             font-size: 2.5rem;
             color: var(--gold);
             text-align: center;
+            letter-spacing: 0.02em;
         }
 
         h2 {
             font-size: 2rem;
-            color: var(--gold);
+            color: var(--terracotta);
             border-bottom: 2px solid var(--gold);
             padding-bottom: var(--spacing-xs);
             margin-bottom: var(--spacing-md);
@@ -268,6 +272,7 @@
 
         .filter-btn {
             padding: var(--spacing-sm) var(--spacing-md);
+            min-height: 44px;
             background: var(--obsidian);
             border: 2px solid var(--gray);
             color: var(--white);
@@ -453,8 +458,8 @@
             background: var(--terracotta);
             color: var(--white);
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             font-size: 1.5rem;
             cursor: pointer;
             line-height: 1;
@@ -987,7 +992,7 @@
             position: fixed;
             bottom: 0;
             right: 0;
-            width: 400px;
+            width: min(400px, 100vw);
             max-height: 80vh;
             background: var(--obsidian-light);
             border: 3px solid var(--jade);
@@ -1272,8 +1277,8 @@
             .modal-close {
                 top: var(--spacing-sm);
                 right: var(--spacing-sm);
-                width: 36px;
-                height: 36px;
+                width: 44px;
+                height: 44px;
             }
         }
 
@@ -1556,8 +1561,8 @@
         </div>
         <nav class="nav-grid" aria-label="Secciones">
             <a href="#juegos" class="nav-button">Juegos (11)</a>
-            <a href="#estrategias" class="nav-button">Estrategias</a>
             <a href="#jugadas-ejemplo" class="nav-button">Jugadas de Ejemplo</a>
+            <a href="#estrategias" class="nav-button">Estrategias</a>
             <a href="#baraja" class="nav-button">Baraja</a>
             <a href="#signos" class="nav-button">Signos</a>
             <a href="#componentes" class="nav-button">Componentes</a>
@@ -1947,282 +1952,6 @@
         </section>
 
         <!-- SECTION 2: ESTRATEGIAS -->
-        <section id="estrategias">
-            <h2>Guías de Estrategia</h2>
-            <p class="text-center mb-lg">Mejora tu juego con estos consejos y técnicas avanzadas para cada modo.</p>
-
-            <!-- Ce -->
-            <div class="strategy-card velocidad">
-                <div class="strategy-header">
-                    <div class="strategy-title">
-                        <h3>Ce ("Uno")</h3>
-                        <span class="difficulty-badge intermedio">Intermedio</span>
-                    </div>
-                    <span style="font-size: 1.5rem;">▼</span>
-                </div>
-                <div class="strategy-content">
-                    <div class="strategy-body">
-                        <ul class="strategy-tips">
-                            <li>Rastrea ambos ejes de color (margen + fondo) simultáneamente para maximizar opciones</li>
-                            <li>Guarda cartas Tlapiani (comodines) para cuando estés bloqueado — nunca las juegues en el primer turno</li>
-                            <li>Juega Pájaros cuando el oponente acabe de robar muchas cartas para retrasar su progreso</li>
-                            <li>Con cartas de doble coincidencia: solo encadena cuando ambas te acerquen a la victoria</li>
-                            <li><strong>SIEMPRE grita "Ce Amapatolli" en tu penúltima carta</strong> — olvidarlo te cuesta 3 cartas</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Jugar comodines demasiado temprano y quedarse sin opciones defensivas en el momento crítico.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ixtli -->
-            <div class="strategy-card velocidad">
-                <div class="strategy-header">
-                    <div class="strategy-title">
-                        <h3>Ixtli ("Ojo/Rostro")</h3>
-                        <span class="difficulty-badge principiante">Principiante</span>
-                    </div>
-                    <span style="font-size: 1.5rem;">▼</span>
-                </div>
-                <div class="strategy-content">
-                    <div class="strategy-body">
-                        <ul class="strategy-tips">
-                            <li>Memoriza tu tablero ANTES de que comience el juego (tómate 10 segundos completos)</li>
-                            <li>Escanea por cuadrantes, no linealmente de izquierda a derecha</li>
-                            <li>Cuando tengas 6 fichas colocadas, fija tu mirada en la ÚNICA ilustración que te falta</li>
-                            <li>Agrupa mentalmente las ilustraciones por categorías (animales, elementos, objetos)</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Escanear en orden lineal en lugar de por agrupaciones visuales. El cerebro reconoce patrones más rápido que secuencias.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pamitl -->
-            <div class="strategy-card estrategia">
-                <div class="strategy-header">
-                    <div class="strategy-title">
-                        <h3>Pamitl ("Bandera/Fila")</h3>
-                        <span class="difficulty-badge avanzado">Avanzado</span>
-                    </div>
-                    <span style="font-size: 1.5rem;">▼</span>
-                </div>
-                <div class="strategy-content">
-                    <div class="strategy-body">
-                        <ul class="strategy-tips">
-                            <li><strong>Siempre toma el centro (3,3) en el movimiento 1</strong> — controla el mayor número de líneas ganadoras</li>
-                            <li>Crea bifurcaciones de doble amenaza (dos líneas ganadoras simultáneas que tu oponente no puede bloquear)</li>
-                            <li>No descuides las diagonales — muchos jugadores se centran solo en horizontales/verticales</li>
-                            <li>Valor de casillas: centro > adyacentes al centro > bordes > esquinas</li>
-                            <li>Cuenta las líneas potenciales de tu oponente y bloquea la más peligrosa</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Jugar reactivamente sin construir tus propias amenazas. En Pamitl, quien ataca primero gana.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pinotl -->
-            <div class="strategy-card velocidad">
-                <div class="strategy-header">
-                    <div class="strategy-title">
-                        <h3>Pinotl ("Pila/Montón")</h3>
-                        <span class="difficulty-badge intermedio">Intermedio</span>
-                    </div>
-                    <span style="font-size: 1.5rem;">▼</span>
-                </div>
-                <div class="strategy-content">
-                    <div class="strategy-body">
-                        <ul class="strategy-tips">
-                            <li><strong>Esto es un juego de RITMO, no de velocidad</strong> — descartar rápido al inicio es contraproducente</li>
-                            <li>Identifica tus cartas "peso muerto" (ilustraciones raras que no emparejan) y descártalas primero</li>
-                            <li>Guarda Tlapiani para el endgame cuando tengas cartas injugables</li>
-                            <li>Observa qué ilustraciones están descartando tus oponentes para saber cuáles ya no están en juego</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Competir por descartar temprano. Los jugadores que avanzan rápido al inicio suelen quedarse estancados al final.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tecuia -->
-            <div class="strategy-card estrategia">
-                <div class="strategy-header">
-                    <div class="strategy-title">
-                        <h3>Tecuia ("Golpear")</h3>
-                        <span class="difficulty-badge intermedio">Intermedio</span>
-                    </div>
-                    <span style="font-size: 1.5rem;">▼</span>
-                </div>
-                <div class="strategy-content">
-                    <div class="strategy-body">
-                        <ul class="strategy-tips">
-                            <li>Visualiza tus secuencias antes de colocar — necesitas 5 cartas consecutivas del mismo color</li>
-                            <li>Bloquea las secuencias largas del oponente colocando cartas en sus espacios clave</li>
-                            <li>Planea desde el valor central hacia fuera para mayor flexibilidad</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>No anticipar qué números necesitarás y colocar cartas sin estrategia de secuencia.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Atoyatl -->
-            <div class="strategy-card velocidad">
-                <div class="strategy-header">
-                    <div class="strategy-title">
-                        <h3>Atoyatl ("Río")</h3>
-                        <span class="difficulty-badge intermedio">Intermedio</span>
-                    </div>
-                    <span style="font-size: 1.5rem;">▼</span>
-                </div>
-                <div class="strategy-content">
-                    <div class="strategy-body">
-                        <ul class="strategy-tips">
-                            <li>Mantén cartas de múltiples valores para tener opciones sin importar qué se juegue</li>
-                            <li>Los valores bajos son más flexibles — guárdalos para maniobrar al final</li>
-                            <li>Anticipa qué puede jugar tu oponente basándote en el valor actual</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Descartar valores extremos (muy altos o muy bajos) demasiado pronto y quedar sin opciones.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cayahua -->
-            <div class="strategy-card estrategia">
-                <div class="strategy-header">
-                    <div class="strategy-title">
-                        <h3>Cayahua ("Dejar caer")</h3>
-                        <span class="difficulty-badge avanzado">Avanzado</span>
-                    </div>
-                    <span style="font-size: 1.5rem;">▼</span>
-                </div>
-                <div class="strategy-content">
-                    <div class="strategy-body">
-                        <ul class="strategy-tips">
-                            <li>Controla el centro del diamante para dominar el territorio</li>
-                            <li>Cada captura debe mejorar tu posición, no solo reducir fichas del oponente</li>
-                            <li>Deja al oponente sin movimientos seguros forzándolo a posiciones vulnerables</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Capturar por capturar sin considerar cómo afecta la estructura del tablero.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tlalpoloa -->
-            <div class="strategy-card estrategia">
-                <div class="strategy-header">
-                    <div class="strategy-title">
-                        <h3>Tlalpoloa ("Devorar la tierra")</h3>
-                        <span class="difficulty-badge intermedio">Intermedio</span>
-                    </div>
-                    <span style="font-size: 1.5rem;">▼</span>
-                </div>
-                <div class="strategy-content">
-                    <div class="strategy-body">
-                        <ul class="strategy-tips">
-                            <li>Expande desde el centro hacia afuera en forma de diamante compacto</li>
-                            <li>Bloquea espacios clave del oponente mientras aseguras los tuyos</li>
-                            <li>Visualiza tu formación final antes de comenzar</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Colocar fichas sin plan de formación, dejando espacios imposibles de llenar.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cempohualli -->
-            <div class="strategy-card velocidad">
-                <div class="strategy-header">
-                    <div class="strategy-title">
-                        <h3>Cempohualli ("Veinte")</h3>
-                        <span class="difficulty-badge principiante">Principiante</span>
-                    </div>
-                    <span style="font-size: 1.5rem;">▼</span>
-                </div>
-                <div class="strategy-content">
-                    <div class="strategy-body">
-                        <ul class="strategy-tips">
-                            <li>Conserva tus vidas estratégicamente — a veces es mejor perder una ronda temprano que arriesgarse</li>
-                            <li>Observa cuántas vidas le quedan a cada jugador y ajusta tu agresividad</li>
-                            <li>Cuando tengas solo 1 vida, juega extremadamente conservador</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Luchar por cada ronda sin considerar el costo a largo plazo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Palehuia -->
-            <div class="strategy-card cooperativo">
-                <div class="strategy-header">
-                    <div class="strategy-title">
-                        <h3>Palehuia ("Ayudar")</h3>
-                        <span class="difficulty-badge intermedio">Intermedio</span>
-                    </div>
-                    <span style="font-size: 1.5rem;">▼</span>
-                </div>
-                <div class="strategy-content">
-                    <div class="strategy-body">
-                        <ul class="strategy-tips">
-                            <li><strong>Comuniquen constantemente</strong> — este es el único juego cooperativo</li>
-                            <li>Prioriza completar pilas en lugar de iniciar nuevas</li>
-                            <li>Administra los Tetl cuidadosamente — si un color se agota, pierden</li>
-                            <li>Si una pila está cerca de quemarse, enfoquen recursos para completarla</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Jugar de forma individual en lugar de coordinarse como equipo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tlapatlani -->
-            <div class="strategy-card velocidad">
-                <div class="strategy-header">
-                    <div class="strategy-title">
-                        <h3>Tlapatlani ("Intercambiar")</h3>
-                        <span class="difficulty-badge principiante">Principiante</span>
-                    </div>
-                    <span style="font-size: 1.5rem;">▼</span>
-                </div>
-                <div class="strategy-content">
-                    <div class="strategy-body">
-                        <ul class="strategy-tips">
-                            <li>Decide temprano qué 4 categorías vas a coleccionar y mantente firme</li>
-                            <li>Intercambia agresivamente — cada intercambio te acerca a la victoria</li>
-                            <li>Observa qué categorías están coleccionando tus oponentes para evitar competir</li>
-                        </ul>
-                        <div class="common-mistakes">
-                            <h4>⚠ Errores Comunes</h4>
-                            <p>Cambiar de categoría a mitad del juego en lugar de comprometerse con tus colecciones iniciales.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- SECTION 2.5: JUGADAS DE EJEMPLO -->
         <section id="jugadas-ejemplo">
             <h2>Jugadas de Ejemplo</h2>
@@ -2768,6 +2497,282 @@
                                     <p><strong>¡VICTORIA!</strong> Jugador A completa pilas de aves (5) y árboles (5) antes → ¡GANA!</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="estrategias">
+            <h2>Guías de Estrategia</h2>
+            <p class="text-center mb-lg">Mejora tu juego con estos consejos y técnicas avanzadas para cada modo.</p>
+
+            <!-- Ce -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Ce ("Uno")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Rastrea ambos ejes de color (margen + fondo) simultáneamente para maximizar opciones</li>
+                            <li>Guarda cartas Tlapiani (comodines) para cuando estés bloqueado — nunca las juegues en el primer turno</li>
+                            <li>Juega Pájaros cuando el oponente acabe de robar muchas cartas para retrasar su progreso</li>
+                            <li>Con cartas de doble coincidencia: solo encadena cuando ambas te acerquen a la victoria</li>
+                            <li><strong>SIEMPRE grita "Ce Amapatolli" en tu penúltima carta</strong> — olvidarlo te cuesta 3 cartas</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Jugar comodines demasiado temprano y quedarse sin opciones defensivas en el momento crítico.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ixtli -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Ixtli ("Ojo/Rostro")</h3>
+                        <span class="difficulty-badge principiante">Principiante</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Memoriza tu tablero ANTES de que comience el juego (tómate 10 segundos completos)</li>
+                            <li>Escanea por cuadrantes, no linealmente de izquierda a derecha</li>
+                            <li>Cuando tengas 6 fichas colocadas, fija tu mirada en la ÚNICA ilustración que te falta</li>
+                            <li>Agrupa mentalmente las ilustraciones por categorías (animales, elementos, objetos)</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Escanear en orden lineal en lugar de por agrupaciones visuales. El cerebro reconoce patrones más rápido que secuencias.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pamitl -->
+            <div class="strategy-card estrategia">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Pamitl ("Bandera/Fila")</h3>
+                        <span class="difficulty-badge avanzado">Avanzado</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li><strong>Siempre toma el centro (3,3) en el movimiento 1</strong> — controla el mayor número de líneas ganadoras</li>
+                            <li>Crea bifurcaciones de doble amenaza (dos líneas ganadoras simultáneas que tu oponente no puede bloquear)</li>
+                            <li>No descuides las diagonales — muchos jugadores se centran solo en horizontales/verticales</li>
+                            <li>Valor de casillas: centro > adyacentes al centro > bordes > esquinas</li>
+                            <li>Cuenta las líneas potenciales de tu oponente y bloquea la más peligrosa</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Jugar reactivamente sin construir tus propias amenazas. En Pamitl, quien ataca primero gana.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pinotl -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Pinotl ("Pila/Montón")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li><strong>Esto es un juego de RITMO, no de velocidad</strong> — descartar rápido al inicio es contraproducente</li>
+                            <li>Identifica tus cartas "peso muerto" (ilustraciones raras que no emparejan) y descártalas primero</li>
+                            <li>Guarda Tlapiani para el endgame cuando tengas cartas injugables</li>
+                            <li>Observa qué ilustraciones están descartando tus oponentes para saber cuáles ya no están en juego</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Competir por descartar temprano. Los jugadores que avanzan rápido al inicio suelen quedarse estancados al final.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tecuia -->
+            <div class="strategy-card estrategia">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Tecuia ("Golpear")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Visualiza tus secuencias antes de colocar — necesitas 5 cartas consecutivas del mismo color</li>
+                            <li>Bloquea las secuencias largas del oponente colocando cartas en sus espacios clave</li>
+                            <li>Planea desde el valor central hacia fuera para mayor flexibilidad</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>No anticipar qué números necesitarás y colocar cartas sin estrategia de secuencia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atoyatl -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Atoyatl ("Río")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Mantén cartas de múltiples valores para tener opciones sin importar qué se juegue</li>
+                            <li>Los valores bajos son más flexibles — guárdalos para maniobrar al final</li>
+                            <li>Anticipa qué puede jugar tu oponente basándote en el valor actual</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Descartar valores extremos (muy altos o muy bajos) demasiado pronto y quedar sin opciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cayahua -->
+            <div class="strategy-card estrategia">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Cayahua ("Dejar caer")</h3>
+                        <span class="difficulty-badge avanzado">Avanzado</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Controla el centro del diamante para dominar el territorio</li>
+                            <li>Cada captura debe mejorar tu posición, no solo reducir fichas del oponente</li>
+                            <li>Deja al oponente sin movimientos seguros forzándolo a posiciones vulnerables</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Capturar por capturar sin considerar cómo afecta la estructura del tablero.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tlalpoloa -->
+            <div class="strategy-card estrategia">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Tlalpoloa ("Devorar la tierra")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Expande desde el centro hacia afuera en forma de diamante compacto</li>
+                            <li>Bloquea espacios clave del oponente mientras aseguras los tuyos</li>
+                            <li>Visualiza tu formación final antes de comenzar</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Colocar fichas sin plan de formación, dejando espacios imposibles de llenar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cempohualli -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Cempohualli ("Veinte")</h3>
+                        <span class="difficulty-badge principiante">Principiante</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Conserva tus vidas estratégicamente — a veces es mejor perder una ronda temprano que arriesgarse</li>
+                            <li>Observa cuántas vidas le quedan a cada jugador y ajusta tu agresividad</li>
+                            <li>Cuando tengas solo 1 vida, juega extremadamente conservador</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Luchar por cada ronda sin considerar el costo a largo plazo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Palehuia -->
+            <div class="strategy-card cooperativo">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Palehuia ("Ayudar")</h3>
+                        <span class="difficulty-badge intermedio">Intermedio</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li><strong>Comuniquen constantemente</strong> — este es el único juego cooperativo</li>
+                            <li>Prioriza completar pilas en lugar de iniciar nuevas</li>
+                            <li>Administra los Tetl cuidadosamente — si un color se agota, pierden</li>
+                            <li>Si una pila está cerca de quemarse, enfoquen recursos para completarla</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Jugar de forma individual en lugar de coordinarse como equipo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tlapatlani -->
+            <div class="strategy-card velocidad">
+                <div class="strategy-header">
+                    <div class="strategy-title">
+                        <h3>Tlapatlani ("Intercambiar")</h3>
+                        <span class="difficulty-badge principiante">Principiante</span>
+                    </div>
+                    <span style="font-size: 1.5rem;">▼</span>
+                </div>
+                <div class="strategy-content">
+                    <div class="strategy-body">
+                        <ul class="strategy-tips">
+                            <li>Decide temprano qué 4 categorías vas a coleccionar y mantente firme</li>
+                            <li>Intercambia agresivamente — cada intercambio te acerca a la victoria</li>
+                            <li>Observa qué categorías están coleccionando tus oponentes para evitar competir</li>
+                        </ul>
+                        <div class="common-mistakes">
+                            <h4>⚠ Errores Comunes</h4>
+                            <p>Cambiar de categoría a mitad del juego en lugar de comprometerse con tus colecciones iniciales.</p>
                         </div>
                     </div>
                 </div>

@@ -119,6 +119,12 @@
             transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
         }
 
+        /* === GLOBAL IMAGE CONTAINMENT === */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
         /* === TYPOGRAPHY === */
         h1, h2, h3, h4 {
             margin-bottom: var(--spacing-sm);
@@ -755,17 +761,17 @@
         /* === THEME TOGGLE === */
         #themeToggle {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
+            top: 55px;
+            right: 12px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: var(--obsidian-light);
+            background: var(--bg-secondary);
             border: 2px solid var(--gold);
-            color: var(--white);
-            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-size: 1.3rem;
             cursor: pointer;
-            z-index: 999;
+            z-index: 1001;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -954,6 +960,9 @@
             background: #f5e6c8;
             border-radius: 4px;
             padding: 4px;
+            max-width: 100%;
+            height: auto;
+            box-sizing: border-box;
         }
 
         /* === STRATEGY SECTION === */
@@ -2974,10 +2983,10 @@
                 <div class="component-card">
                     <h4>Tetl (Fichas)</h4>
                     <div style="display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1rem;">
-                        <img src="./tetl/Tetl rojo.png" alt="Tetl Rojo" style="max-width: 50px;">
-                        <img src="./tetl/Tetl azul.png" alt="Tetl Azul" style="max-width: 50px;">
-                        <img src="./tetl/Tetl negro.png" alt="Tetl Negro" style="max-width: 50px;">
-                        <img src="./tetl/Tetl blanco.png" alt="Tetl Blanco" style="max-width: 50px;">
+                        <img src="./tetl/Tetl rojo.png" alt="Tetl Rojo" style="max-width: 120px;">
+                        <img src="./tetl/Tetl azul.png" alt="Tetl Azul" style="max-width: 120px;">
+                        <img src="./tetl/Tetl negro.png" alt="Tetl Negro" style="max-width: 120px;">
+                        <img src="./tetl/Tetl blanco.png" alt="Tetl Blanco" style="max-width: 120px;">
                     </div>
                     <p>Piezas de colores para marcar posiciones en el tablero.</p>
                 </div>

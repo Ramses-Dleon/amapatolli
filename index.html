@@ -258,7 +258,7 @@
             border: none;
             border-bottom: 3px solid transparent;
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.875rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -321,13 +321,13 @@
 
         .game-card-thumb .game-type {
             color: var(--cyan);
-            font-size: 0.85rem;
+            font-size: 0.875rem;
             margin-bottom: var(--spacing-xs);
         }
 
         .game-card-thumb .game-players {
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.875rem;
         }
 
         /* === OLD NAVIGATION (kept for Inicio tab) === */
@@ -522,8 +522,10 @@
         }
 
         .sign-card img {
-            width: 160px;
-            height: 160px;
+            width: 100%;
+            max-width: 160px;
+            height: auto;
+            aspect-ratio: 1;
             margin: 0 auto var(--spacing-sm);
             display: block;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
@@ -545,7 +547,7 @@
 
         .sign-card .meaning {
             color: var(--gray);
-            font-size: 0.85rem;
+            font-size: 0.875rem;
         }
 
         /* === COMPONENT CARDS === */
@@ -1783,7 +1785,7 @@
             <h3 style="color: var(--gold); margin-bottom: 1rem;">¿Qué juego jugamos?</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin-bottom: 1rem;">
                 <div>
-                    <label style="color: var(--text-secondary); font-size: 0.85rem;">• Jugadores</label>
+                    <label style="color: var(--text-secondary); font-size: 0.875rem;">• Jugadores</label>
                     <select id="players" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--gold); background: var(--bg-secondary); color: var(--text-primary);">
                         <option value="any">Cualquiera</option>
                         <option value="2">2 jugadores</option>
@@ -1792,7 +1794,7 @@
                     </select>
                 </div>
                 <div>
-                    <label style="color: var(--text-secondary); font-size: 0.85rem;">• Tiempo</label>
+                    <label style="color: var(--text-secondary); font-size: 0.875rem;">• Tiempo</label>
                     <select id="duration" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--gold); background: var(--bg-secondary); color: var(--text-primary);">
                         <option value="any">Cualquiera</option>
                         <option value="rapido">Rápido (10-15 min)</option>
@@ -1801,7 +1803,7 @@
                     </select>
                 </div>
                 <div>
-                    <label style="color: var(--text-secondary); font-size: 0.85rem;">• Tipo</label>
+                    <label style="color: var(--text-secondary); font-size: 0.875rem;">• Tipo</label>
                     <select id="gameType" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--gold); background: var(--bg-secondary); color: var(--text-primary);">
                         <option value="any">Cualquiera</option>
                         <option value="velocidad">Velocidad</option>
@@ -2006,10 +2008,11 @@
             <div class="game-subsection">
                 <h3>Estrategia</h3>
                 <ul class="strategy-tips">
-                            <li>Memoriza tu tablero ANTES de que comience el juego (tómate 10 segundos completos)</li>
-                            <li>Escanea por cuadrantes, no linealmente de izquierda a derecha</li>
+                            <li>Memoriza tu tablero ANTES de que comience el juego — tómate 10 segundos completos para ubicar cada ilustración</li>
+                            <li>Escanea por cuadrantes (esquinas → centro), no linealmente de izquierda a derecha</li>
                             <li>Cuando tengas 6 fichas colocadas, fija tu mirada en la ÚNICA ilustración que te falta</li>
-                            <li>Agrupa mentalmente las ilustraciones por categorías (animales, elementos, objetos)</li>
+                            <li>Agrupa mentalmente las ilustraciones por categorías (animales, elementos, objetos) para localizarlas más rápido</li>
+                            <li>Si eres el cantor: voltea las cartas con ritmo constante — no dejes que los demás se acomoden demasiado</li>
                         </ul>
                         <div class="common-mistakes">
                             <h4>⚠ Errores Comunes</h4>
@@ -2175,8 +2178,9 @@
                 <ul class="strategy-tips">
                             <li><strong>Esto es un juego de RITMO, no de velocidad</strong> — descartar rápido al inicio es contraproducente</li>
                             <li>Identifica tus cartas "peso muerto" (ilustraciones raras que no emparejan) y descártalas primero</li>
-                            <li>Guarda Tlapiani para el endgame cuando tengas cartas injugables</li>
+                            <li>Guarda Tlapiani para el endgame cuando tengas cartas injugables — son tu salvavidas final</li>
                             <li>Observa qué ilustraciones están descartando tus oponentes para saber cuáles ya no están en juego</li>
+                            <li>Cuando el mazo se agote, cuenta las cartas que le quedan a cada oponente — ajusta tu agresividad en consecuencia</li>
                         </ul>
                         <div class="common-mistakes">
                             <h4>⚠ Errores Comunes</h4>
@@ -2811,10 +2815,10 @@
                 <div class="component-card">
                     <h4>Reversos de Cartas</h4>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-                        <img src="./reversos/Rojo Reverso.jpg" alt="Reverso Rojo" style="max-width: 100px; margin: 0 auto;">
-                        <img src="./reversos/Azul Reverso.jpg" alt="Reverso Azul" style="max-width: 100px; margin: 0 auto;">
-                        <img src="./reversos/Negro Reverso.jpg" alt="Reverso Negro" style="max-width: 100px; margin: 0 auto;">
-                        <img src="./reversos/Blanco Reverso.jpg" alt="Reverso Blanco" style="max-width: 100px; margin: 0 auto;">
+                        <img src="./reversos/Rojo Reverso.jpg" alt="Reverso Rojo" style="max-width: 200px; margin: 0 auto;">
+                        <img src="./reversos/Azul Reverso.jpg" alt="Reverso Azul" style="max-width: 200px; margin: 0 auto;">
+                        <img src="./reversos/Negro Reverso.jpg" alt="Reverso Negro" style="max-width: 200px; margin: 0 auto;">
+                        <img src="./reversos/Blanco Reverso.jpg" alt="Reverso Blanco" style="max-width: 200px; margin: 0 auto;">
                     </div>
                 </div>
             </div>
@@ -2972,7 +2976,7 @@
 
                 <div class="sign-card">
                     <img src="./ilhuitl/Tepactl.png" alt="Tepactl">
-                    <h4>Tepactl</h4>
+                    <h4>Tecpatl</h4>
                     <p class="spanish">Pedernal</p>
                     <p class="meaning">Corte, separación, filo</p>
                 </div>
@@ -3030,6 +3034,7 @@
             </div>
 
             <h3 class="mt-lg">¿Qué Juegos Usan Qué Componentes?</h3>
+            <div style="overflow-x: auto;">
             <table>
                 <thead>
                     <tr>
@@ -3052,6 +3057,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </section>
 
         <!-- SECTION 6: HISTORIA & CULTURA -->
@@ -3481,7 +3487,7 @@
     <footer style="text-align: center; padding: 2rem 1rem; color: var(--gray); border-top: 1px solid var(--gold); margin-top: 2rem;">
         <p style="color: var(--gold); font-weight: 600; margin-bottom: 0.5rem;">Amapatolli — Colección Tonalli</p>
         <p>Juego diseñado por <a href="https://estudiotochcalli.mx" target="_blank" rel="noopener" style="color: var(--jade);">Estudio Tochcalli</a></p>
-        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Esta es una guía companion no oficial. Todo el contenido e imágenes pertenecen a sus respectivos creadores.</p>
+        <p style="font-size: 0.875rem; margin-top: 0.5rem;">Esta es una guía companion no oficial. Todo el contenido e imágenes pertenecen a sus respectivos creadores.</p>
     </footer>
 
     <!-- MODALS -->

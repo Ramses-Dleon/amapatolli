@@ -68,6 +68,16 @@
             border-color: #c4934f;
         }
 
+        html[data-theme="light"] .info-box,
+        html[data-theme="light"] .tlapiani-card,
+        html[data-theme="light"] .game-card,
+        html[data-theme="light"] .sign-card,
+        html[data-theme="light"] .lord-card,
+        html[data-theme="light"] .component-card {
+            background: #f0ece4;
+            border-color: #c4934f;
+        }
+
         body {
             font-family: var(--font-body);
             background: var(--obsidian);
@@ -179,6 +189,10 @@
 
         .nav-button {
             padding: var(--spacing-md);
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: var(--obsidian-light);
             border: 2px solid var(--jade);
             color: var(--white);
@@ -1951,8 +1965,7 @@
             </div>
         </section>
 
-        <!-- SECTION 2: ESTRATEGIAS -->
-        <!-- SECTION 2.5: JUGADAS DE EJEMPLO -->
+        <!-- SECTION 2: JUGADAS DE EJEMPLO -->
         <section id="jugadas-ejemplo">
             <h2>Jugadas de Ejemplo</h2>
             <p class="text-center mb-lg">Escenarios paso a paso para aprender cada juego</p>
@@ -2503,6 +2516,7 @@
             </div>
         </section>
 
+        <!-- SECTION 2.5: ESTRATEGIAS -->
         <section id="estrategias">
             <h2>Guías de Estrategia</h2>
             <p class="text-center mb-lg">Mejora tu juego con estos consejos y técnicas avanzadas para cada modo.</p>

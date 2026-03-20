@@ -27,7 +27,7 @@
             --bg-card: #332e2b;         /* Card/section background */
             --gold: #d0b36e;            /* Card border gold — primary accent */
             --cyan: #3697b5;            /* Instruction blue — secondary accent */
-            --red: #ed2c30;             /* Card red — alerts, highlights */
+            --red: #ed2c30;             /* Card red — alerts only */
             --green: #2a853b;           /* Illustration green — success */
             --yellow: #f7e019;          /* Illustration yellow — warnings */
             --text-primary: #f5f0e0;    /* Warm white */
@@ -38,7 +38,7 @@
             /* Legacy aliases for compatibility */
             --obsidian: #231f20;
             --obsidian-light: #2d2926;
-            --terracotta: #ed2c30;
+            --terracotta: #c4856a;
             --jade: #3697b5;
             --white: #f5f0e0;
             --gray: #c0b8a8;
@@ -78,7 +78,7 @@
             /* Legacy aliases for light mode */
             --obsidian: #f5e6c8;
             --obsidian-light: #ffffff;
-            --terracotta: #c41e22;
+            --terracotta: #9a5e47;
             --jade: #2a7a94;
             --white: #231f20;
             --gray: #5a524a;
@@ -1760,7 +1760,7 @@
             <h3 style="color: var(--gold); margin-bottom: 1rem;">¿Qué juego jugamos?</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin-bottom: 1rem;">
                 <div>
-                    <label style="color: var(--text-secondary); font-size: 0.85rem;">👥 Jugadores</label>
+                    <label style="color: var(--text-secondary); font-size: 0.85rem;">• Jugadores</label>
                     <select id="players" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--gold); background: var(--bg-secondary); color: var(--text-primary);">
                         <option value="any">Cualquiera</option>
                         <option value="2">2 jugadores</option>
@@ -1769,7 +1769,7 @@
                     </select>
                 </div>
                 <div>
-                    <label style="color: var(--text-secondary); font-size: 0.85rem;">⏱️ Tiempo</label>
+                    <label style="color: var(--text-secondary); font-size: 0.85rem;">• Tiempo</label>
                     <select id="duration" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--gold); background: var(--bg-secondary); color: var(--text-primary);">
                         <option value="any">Cualquiera</option>
                         <option value="rapido">Rápido (10-15 min)</option>
@@ -1778,7 +1778,7 @@
                     </select>
                 </div>
                 <div>
-                    <label style="color: var(--text-secondary); font-size: 0.85rem;">🎯 Tipo</label>
+                    <label style="color: var(--text-secondary); font-size: 0.85rem;">• Tipo</label>
                     <select id="gameType" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--gold); background: var(--bg-secondary); color: var(--text-primary);">
                         <option value="any">Cualquiera</option>
                         <option value="velocidad">Velocidad</option>
@@ -1817,57 +1817,57 @@
                 <a href="#ce" class="game-card-thumb" data-tab-link="ce">
                     <h4>Ce</h4>
                     <p class="game-type">Cartas · Velocidad/Descarte</p>
-                    <p class="game-players">👥 2-6 jugadores</p>
+                    <p class="game-players">• 2-6 jugadores</p>
                 </a>
                 <a href="#ixtli" class="game-card-thumb" data-tab-link="ixtli">
                     <h4>Ixtli</h4>
                     <p class="game-type">Cartas · Observación/Velocidad</p>
-                    <p class="game-players">👥 2-4 jugadores</p>
+                    <p class="game-players">• 2-4 jugadores</p>
                 </a>
                 <a href="#pamitl" class="game-card-thumb" data-tab-link="pamitl">
                     <h4>Pamitl</h4>
                     <p class="game-type">Tablero · Conecta 5</p>
-                    <p class="game-players">👥 2 jugadores</p>
+                    <p class="game-players">• 2 jugadores</p>
                 </a>
                 <a href="#pinotl" class="game-card-thumb" data-tab-link="pinotl">
                     <h4>Pinotl</h4>
                     <p class="game-type">Cartas · Emparejamiento</p>
-                    <p class="game-players">👥 2-4 jugadores</p>
+                    <p class="game-players">• 2-4 jugadores</p>
                 </a>
                 <a href="#tecuia" class="game-card-thumb" data-tab-link="tecuia">
                     <h4>Tecuia</h4>
                     <p class="game-type">Cartas · Secuencias</p>
-                    <p class="game-players">👥 2-6 jugadores</p>
+                    <p class="game-players">• 2-6 jugadores</p>
                 </a>
                 <a href="#atoyatl" class="game-card-thumb" data-tab-link="atoyatl">
                     <h4>Atoyatl</h4>
                     <p class="game-type">Cartas · Descarte</p>
-                    <p class="game-players">👥 2-6 jugadores</p>
+                    <p class="game-players">• 2-6 jugadores</p>
                 </a>
                 <a href="#cayahua" class="game-card-thumb" data-tab-link="cayahua">
                     <h4>Cayahua</h4>
                     <p class="game-type">Tablero · Captura</p>
-                    <p class="game-players">👥 2 jugadores</p>
+                    <p class="game-players">• 2 jugadores</p>
                 </a>
                 <a href="#tlalpoloa" class="game-card-thumb" data-tab-link="tlalpoloa">
                     <h4>Tlalpoloa</h4>
                     <p class="game-type">Tablero · Territorial</p>
-                    <p class="game-players">👥 2 jugadores</p>
+                    <p class="game-players">• 2 jugadores</p>
                 </a>
                 <a href="#cempohualli" class="game-card-thumb" data-tab-link="cempohualli">
                     <h4>Cempohualli</h4>
                     <p class="game-type">Cartas · Supervivencia</p>
-                    <p class="game-players">👥 2-6 jugadores</p>
+                    <p class="game-players">• 2-6 jugadores</p>
                 </a>
                 <a href="#palehuia" class="game-card-thumb" data-tab-link="palehuia">
                     <h4>Palehuia</h4>
                     <p class="game-type">Cartas · Cooperativo</p>
-                    <p class="game-players">👥 2-4 jugadores</p>
+                    <p class="game-players">• 2-4 jugadores</p>
                 </a>
                 <a href="#tlapatlani" class="game-card-thumb" data-tab-link="tlapatlani">
                     <h4>Tlapatlani</h4>
                     <p class="game-type">Cartas · Colección</p>
-                    <p class="game-players">👥 2-6 jugadores</p>
+                    <p class="game-players">• 2-6 jugadores</p>
                 </a>
             </div>
         </section>
@@ -1882,8 +1882,8 @@
             <h2>Ce <span class="game-translation">("Uno")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Velocidad/Descarte</span>
-                <span>👥 2-6 jugadores</span>
-                <span>🎴 Solo baraja</span>
+                <span>• 2-6 jugadores</span>
+                <span>• Solo baraja</span>
             </div>
             <p class="game-description">Empareja por color de margen o fondo. ¡Grita "Ce Amapatolli" cuando te quede una carta!</p>
             
@@ -1960,8 +1960,8 @@
             <h2>Ixtli <span class="game-translation">("Ojo/Rostro")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Tablero + Cartas · Observación/Velocidad</span>
-                <span>👥 2-4 jugadores</span>
-                <span>🎴 Baraja + tablero + fichas</span>
+                <span>• 2-4 jugadores</span>
+                <span>• Baraja + tablero + fichas</span>
             </div>
             <p class="game-description">Encuentra la ilustración en tu tablero. ¡Grita "Ixtli" al encontrarla!</p>
             
@@ -2043,7 +2043,7 @@
             <h2>Pamitl <span class="game-translation">("Bandera/Fila")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Tablero + Fichas · Estrategia abstracta</span>
-                <span>👥 2 jugadores</span>
+                <span>• 2 jugadores</span>
                 <span>🎲 Tablero + fichas</span>
             </div>
             <p class="game-description">Conecta 5 fichas en fila en cualquier dirección para ganar.</p>
@@ -2127,8 +2127,8 @@
             <h2>Pinotl <span class="game-translation">("Pila/Montón")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Emparejamiento</span>
-                <span>👥 2-6 jugadores</span>
-                <span>🎴 Solo baraja</span>
+                <span>• 2-6 jugadores</span>
+                <span>• Solo baraja</span>
             </div>
             <p class="game-description">Termina tus cartas antes que los demás una vez agotado el mazo.</p>
             
@@ -2204,8 +2204,8 @@
             <h2>Tecuia <span class="game-translation">("Golpear")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Secuencia/Posicionamiento</span>
-                <span>👥 2-4 jugadores</span>
-                <span>🎴 Solo baraja</span>
+                <span>• 2-4 jugadores</span>
+                <span>• Solo baraja</span>
             </div>
             <p class="game-description">Coloca 5 cartas consecutivas de tu color en cualquier dirección.</p>
             
@@ -2280,8 +2280,8 @@
             <h2>Atoyatl <span class="game-translation">("Río")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Descarte por valor</span>
-                <span>👥 2-4 jugadores</span>
-                <span>🎴 Solo baraja</span>
+                <span>• 2-4 jugadores</span>
+                <span>• Solo baraja</span>
             </div>
             <p class="game-description">Coloca la última carta boca abajo para ganar. Los valores numéricos determinan jugadas válidas.</p>
             
@@ -2362,7 +2362,7 @@
             <h2>Cayahua <span class="game-translation">("Dejar caer")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Tablero + Fichas · Estrategia abstracta</span>
-                <span>👥 2 jugadores</span>
+                <span>• 2 jugadores</span>
                 <span>🎲 Tablero + fichas</span>
             </div>
             <p class="game-description">Deja a tu rival sin ningún Tetl en formación de diamante.</p>
@@ -2438,7 +2438,7 @@
             <h2>Tlalpoloa <span class="game-translation">("Devorar la tierra")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Tablero + Fichas · Colocación</span>
-                <span>👥 2 jugadores</span>
+                <span>• 2 jugadores</span>
                 <span>🎲 Tablero + fichas</span>
             </div>
             <p class="game-description">Coloca todas tus fichas en el tablero con formación de diamante.</p>
@@ -2514,8 +2514,8 @@
             <h2>Cempohualli <span class="game-translation">("Veinte")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Supervivencia</span>
-                <span>👥 2-6 jugadores</span>
-                <span>🎴 Solo baraja</span>
+                <span>• 2-6 jugadores</span>
+                <span>• Solo baraja</span>
             </div>
             <p class="game-description">Cada carta es una vida. ¡El último jugador en pie gana!</p>
             
@@ -2590,8 +2590,8 @@
             <h2>Palehuia <span class="game-translation">("Ayudar")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Cooperativo</span>
-                <span>👥 2-4 jugadores</span>
-                <span>🎴 Baraja + fichas</span>
+                <span>• 2-4 jugadores</span>
+                <span>• Baraja + fichas</span>
             </div>
             <p class="game-description">Juego cooperativo: completa 4 pilas del 1 al 5. ¡Trabajen juntos para no perder!</p>
             
@@ -2674,8 +2674,8 @@
             <h2>Tlapatlani <span class="game-translation">("Intercambiar")</span></h2>
             <div class="game-meta">
                 <span class="game-type">Cartas · Colección</span>
-                <span>👥 2-4 jugadores</span>
-                <span>🎴 Solo baraja</span>
+                <span>• 2-4 jugadores</span>
+                <span>• Solo baraja</span>
             </div>
             <p class="game-description">Completa primero tus 4 pilas organizadas por tipo de ilustración.</p>
             
@@ -4147,8 +4147,8 @@
                     <h2>${game.name} <span style="font-size: 0.7em; color: var(--jade);">("${game.translation}")</span></h2>
                     <p style="color: var(--terracotta); font-size: 1.1rem; margin-bottom: 1rem;">${game.type}</p>
                     <div class="game-info" style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                        <span style="background: var(--obsidian); padding: 0.5rem 1rem; border-radius: 4px;">👥 ${game.players}</span>
-                        <span style="background: var(--obsidian); padding: 0.5rem 1rem; border-radius: 4px;">🎴 ${game.components}</span>
+                        <span style="background: var(--obsidian); padding: 0.5rem 1rem; border-radius: 4px;">• ${game.players}</span>
+                        <span style="background: var(--obsidian); padding: 0.5rem 1rem; border-radius: 4px;">• ${game.components}</span>
                     </div>
 
                     <div class="modal-images">

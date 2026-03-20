@@ -65,7 +65,7 @@
             --bg-primary: #f5e6c8;      /* Papyrus/parchment */
             --bg-secondary: #ece0cc;    /* Slightly darker parchment */
             --bg-card: #ffffff;         /* White cards */
-            --gold: #8B6914;            /* Darker gold for contrast */
+            --gold: #a07d2e;            /* Warm dark gold for contrast */
             --cyan: #2a7a94;            /* Darker cyan */
             --red: #c41e22;             /* Darker red */
             --green: #1e6b2e;           /* Darker green */
@@ -217,6 +217,9 @@
             -webkit-overflow-scrolling: touch;
             scrollbar-width: thin;
             scrollbar-color: var(--gold) var(--bg-secondary);
+            /* Fade hints for scroll overflow */
+            mask-image: linear-gradient(to right, transparent 0px, black 24px, black calc(100% - 24px), transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0px, black 24px, black calc(100% - 24px), transparent 100%);
         }
 
         .tab-bar::-webkit-scrollbar {
